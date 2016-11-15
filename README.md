@@ -3,7 +3,7 @@ FastTrack'D - Third Assessment
 
 ## Overview
 
-For this assessment, you are tasked with implementing an AngularJS web app front end for the [Second Assessment API](https://github.com/) using the Angular Material component library and Webpack build tool.
+For this assessment, you are tasked with implementing an AngularJS web app front end for the [Second Assessment API](https://github.com/mborencooksys/second-assessment-skeleton) using the Angular Material component library and Webpack build tool.
 
 ## Grading
 
