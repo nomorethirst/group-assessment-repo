@@ -8,7 +8,7 @@ import { config } from 'app/app.config'
 import { routing } from 'app/app.routes'
 
 export default ng
-  .module('ft.buttons', [uiRouter])
+  .module('ft.twitter', [uiRouter])
   .service('appService', AppService)
   .component('ftNavBar', ftNavBar)
   .component('ftApp', ftApp)
