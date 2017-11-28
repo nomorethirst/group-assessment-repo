@@ -10,7 +10,7 @@ export class UserService {
         this.logger.log('userService is a go')
         this.http = $http
         this.userTestData = userTestData
-        this.baseUrl = 'http://localhost:8080/api'
+        this.baseUrl = 'http://localhost:8080'
         // this.restoreState()
         }
 
