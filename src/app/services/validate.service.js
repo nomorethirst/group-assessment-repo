@@ -1,3 +1,6 @@
+let HOST = 'localhost'
+let PORT = '8080'
+
 export class ValidateService{
 
     constructor($log, $http){

@@ -1,6 +1,3 @@
-let HOST = 'localhost'
-let PORT = 8080
-
 // Third-party libraries/modules
 import uiRouter from 'angular-ui-router'
 
