@@ -93,4 +93,24 @@ export class UserService {
             }
             this.user = Object.assign(this.user, {profile})
         }
+
+        getFeed(){
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/' + this.user.username + '/feed')
+        }
+
+        getTweets(){
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/' + this.user.username + '/tweets')
+        }
+
+        getMentions(){
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/' + this.user.username + '/mentions')
+        }
+
+        getFollowers(){
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/' + this.user.username + '/followers')
+        }
+
+        getFollowing(){
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/' + this.user.username + '/following')
+        }
 }
