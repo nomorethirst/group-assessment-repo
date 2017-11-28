@@ -3,11 +3,11 @@ import templateUrl from 'app/components/tweet/tweet'
 
 const controller =
   class TweetController {
-    constructor($log, $state, userService, TweetService) {
+    constructor($log, $state, userService, tweetService) {
       'ngInject'
       this.userService = userService
       this.$state = $state
-      this.tweetService = TweetService
+      this.tweetService = tweetService
     }
   }
 

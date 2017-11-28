@@ -3,11 +3,11 @@ import templateUrl from 'app/components/feed/feed'
 
 const controller =
   class FeedController {
-    constructor($log, $state, userService, TweetService) {
+    constructor($log, $state, userService, tweetService) {
       'ngInject'
       this.userService = userService
       this.$state = $state
-      this.tweetService = TweetService
+      this.tweetService = tweetService
     }
   }
 

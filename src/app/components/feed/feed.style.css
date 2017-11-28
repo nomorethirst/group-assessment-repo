@@ -1,0 +1,13 @@
+tweet {
+  background-color: lightBlue;
+  border-radius: 32px;
+}
+
+.tweet-content {
+  font-family: 'Indie Flower', cursive;
+  border-bottom: 2px solid grey;
+}
+
+.tweet-reply {
+  left: 32px;
+}
