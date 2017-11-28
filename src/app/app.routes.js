@@ -5,11 +5,11 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
     url: '/welcome',
     template: '<h1 style="text-align:center;">Welcome to Ft Twitter!</h1>'
   }
-  // const loginState = {
-  //   name: 'login',
-  //   url: '/login',
-  //   component: 'ftLogin'
-  // }
+  const loginState = {
+    name: 'login',
+    url: '/login',
+    component: 'ftLogin'
+  }
   // const signupState = {
   //   name: 'signup',
   //   url: '/signup',
@@ -21,5 +21,5 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/welcome')
   $stateProvider.state(welcomeState)
   // $stateProvider.state(signupState)
-  // $stateProvider.state(loginState)
+  $stateProvider.state(loginState)
 }

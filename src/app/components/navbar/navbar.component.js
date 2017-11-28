@@ -2,9 +2,9 @@ import 'app/app.styles'
 import templateUrl from 'app/components/navbar/navbar.template'
 
 const controller = class FtNavBarController {
-  constructor($log, appService) {
+  constructor($log, userService) {
     'ngInject'
-    this.service = appService
+    this.service = userService
     $log.debug('ft-navbar is a go')
   }
 
