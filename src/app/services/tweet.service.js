@@ -1,6 +1,3 @@
-let HOST = 'localhost'
-let PORT = 8080
-
 export class TweetService{
 
     constructor($log, $http){
