@@ -1,0 +1,10 @@
+
+   <div class="card">
+           <div class="card-block">
+               <p>Followers ({{userblurb.getFollowers().length}}):</p>
+             <button type="button" class="btn btn-info" ng-repeat="user in userblurb.geFollowers()"
+             ui-sref="profile({username: user.username})" ui-sref-active="active">{{user.username}}
+             </button>
+           </div>
+           </div>
+        

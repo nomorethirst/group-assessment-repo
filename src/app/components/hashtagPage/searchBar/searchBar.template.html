@@ -1,0 +1,36 @@
+<div class="searchBarBody">
+  <div class="header">
+    <h1 class="headerText">See what's happening right now</h1>
+  </div>
+
+  <div class="col-lg-7 col-md-7 col-sm-6">
+    <div class="input-group">
+      <span class="input-group-addon"><div class="hashtagIcon">#</div></span>
+      <input type="text" class="form-control input-lg" ng-model="hashtag" placeholder="What are you looking for?">
+      <span class="input-group-btn">
+  	    <button type="button" class="btn btn-info btn-lg">
+          <span type="button" class="glyphicon glyphicon-search" ng-click="searchBar.allTweets"><span class="searchText"> Search</span></span>
+        </button>
+      </span>
+    </div>
+  </div>
+
+  <div class="hashtagCaption">Get started with some Hashtags</div>
+  <div class="col-lg-10 col-md-10 col-sm-8">
+  	<div class="randomTagContainer">
+  	  <div ng-repeat="hashtag in ::searchBar.allHashtags">
+  	  	<div class="randomHashtags">#{{::hashtag.label}}</div>
+  	  </div>
+    </div>
+  </div>
+  <div class="spacing">
+  </div>
+</div>
+<div id="hashtagResult">
+  <div class="hashtagResultContainer">
+  	<div>blahh</div>
+  	<div ng-repeat="tweet in searchBar.findTweets">
+  	  <div>{{tweet}}</div>
+    </div>
+  </div>
+</div>
