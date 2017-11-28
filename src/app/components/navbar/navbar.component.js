@@ -4,11 +4,11 @@ import templateUrl from 'app/components/navbar/navbar.template'
 const controller = class FtNavBarController {
   constructor($log, $state, $location, userService) {
     'ngInject'
-    this.log = $log
+    this.logger = $log
     this.state = $state
     this.location = $location
-    this.service = userService
-    $log.debug('ft-navbar is a go')
+    this.userService = userService
+    this.logger.log('ft-navbar is a go')
   }
 
   showProfileOrSignup(){
@@ -16,32 +16,32 @@ const controller = class FtNavBarController {
   }
 
   userOrSignup() {
-    return this.service.user === null 
+    return this.userService.user === null 
       ? "Sign Up" 
-      : this.service.user.username
+      : this.userService.user.username
   }
 
   get refProfileOrSignup() {
-    return this.service.user === null 
+    return this.userService.user === null 
       ? 'signup'
       : 'profile'
   }
 
   loginOrLogout() {
-    return this.service.user === null 
+    return this.userService.user === null 
       ? "Login" 
       : "Logout"
   }
 
   get refLoginOrLogout() {
-    return this.service.user === null 
+    return this.userService.user === null 
       ? "login" 
       : "logout"
   }
 
   clickLogout() {
-    if (this.service.user !== null)
-      this.service.logout()
+    if (this.userService.user !== null)
+      this.userService.logout()
       this.location.path('login')
   }
 }

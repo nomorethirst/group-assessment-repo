@@ -5,16 +5,22 @@ const controller =
   class FtSignUpController {
     constructor ($log, $location, userService, validateService) {
       'ngInject'
-      this.service = userService
-      this.validateService = validateService
+      this.logger = $log
       this.location = $location
-      this.username = ""
-      this.password = ""
-      this.email = ""
-      this.firstName = ""
-      this.lastName = ""
-      this.phone = ""
-      $log.log('ft-signup is a go')
+      this.userService = userService
+      this.validateService = validateService
+      if (this.userService.isAuthenticated()) {
+        this.logger.log('ft-signup: user already authenticated, redirecting to feed')
+        this.location.path('feed')
+      } else {
+        this.username = ""
+        this.password = ""
+        this.email = ""
+        this.firstName = ""
+        this.lastName = ""
+        this.phone = ""
+        this.logger.log('ft-signup is a go')
+      }
     }
 
     signup() {
@@ -27,7 +33,7 @@ const controller =
       this.validateService.getUsernameAvailable(this.username)
         .then(result => {
           if (result.data) {
-            this.service.createUser({
+            this.userService.createUser({
                 username: this.username,
                 password: this.password
               }, {

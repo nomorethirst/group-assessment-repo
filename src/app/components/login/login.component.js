@@ -5,19 +5,21 @@ const controller =
   class FtLoginController {
     constructor ($log, $location, userService) {
       'ngInject'
-      this.service = userService
+      this.logger = $log
       this.location = $location
-      if (this.service.isAuthenticated()) {
+      this.userService = userService
+      if (this.userService.isAuthenticated()) {
         this.location.path('feed')
+        this.logger.log('ft-login: user already authenticated, redirecting to feed')
       } else {
         this.username = ""
         this.password = ""
-        $log.log('ft-login is a go')
+        this.logger.log('ft-login is a go')
       }
     }
 
     login() {
-      this.service.login({username: this.username, password: this.password})
+      this.userService.login({username: this.username, password: this.password})
         .then(result => {
           this.location.path('/feed')
         })

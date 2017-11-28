@@ -91,12 +91,12 @@ export class UserService {
             return this.http.get(this.baseUrl + '/users')
         }
 
-        getUser(username = this.username) {
+        getUser(username = this.user.username) {
             return this.http.get(this.baseUrl + '/users/@' + username)
         }
 
         deleteUser(credentials = this.credentials) {
-            return this.http.delete(`${this.baseUrl}/users/@${this.username}`, {credentials})
+            return this.http.delete(`${this.baseUrl}/users/@${this.user.username}`, {credentials})
                 .then(result => {
                     this.logger.log('userService.deleteUser result: ', result)
                     this.logout()
@@ -109,7 +109,7 @@ export class UserService {
         }
 
         patchUser(credentials = this.credentials, profile) {
-            return this.http.patch(`${this.baseUrl}/users/@${this.username}`, {credentials, profile})
+            return this.http.patch(`${this.baseUrl}/users/@${this.user.username}`, {credentials, profile})
                 .then(result => {
                     this.logger.log('userService.patchUser result: ', result)
                     this.user = result.data
