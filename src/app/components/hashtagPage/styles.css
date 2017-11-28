@@ -1,0 +1,42 @@
+.searchBarBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.headerText {
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+.hashtagIcon {
+  font-size: 28px;
+  font-weight: bolder;
+}
+
+.searchText {
+  font-size: 23px;
+  font-family: "Arial", Helvetica, sans-serif;
+}
+
+.randomTagContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.randomHashtags {
+  padding: 10px;
+  color: #5bc0de;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.hashtagCaption {
+  padding-top: 30px;
+}
+
+.spacing {
+	flex: .7 0 auto;
+}

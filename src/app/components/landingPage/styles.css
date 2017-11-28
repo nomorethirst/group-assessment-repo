@@ -1,0 +1,20 @@
+.landingPage-BodyContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.landingPage-Body {
+  display: flex;
+  height: 90%;
+  justify-content: center;
+}
+
+.landingPage-WelcomeContainer {
+	align-self: center;
+}
+
+.tweetAll {
+  display: flex;
+  flex-direction: row;
+  color: red;
+}
