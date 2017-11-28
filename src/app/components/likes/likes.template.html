@@ -1,18 +1,11 @@
- <div class="card">
-    <div class="card-block">
-         <p>Likes ({{userblurb.getLikes().length}}):</p>
-            <ul>
-                <li ng-repeat="tweet in userblurb.getLikes()">
-                    <div>
-                        <label>ID: </label><p>{{tweet.id}}</p>
-                        <label>Time Posted: </label><p>{{tweet.posted}}</p>
-                        <label>Content: </label><p>{{tweet.content}}</p>
-                    </div>
-                                
-                </li>
-            </ul>
-     </div>
-</div>
+<div class="ff-likes">
+        <div class="card-block">
+            <p>Liked By ({{likes.likes.length}}):</p>
+          <button type="button" class="btn btn-info" ng-repeat="likes in likes.likes"
+          ui-sref="userPage url" ui-sref-active="active">{{likes.username}}
+          </button>
+        </div>
+        </div>
     
     
     

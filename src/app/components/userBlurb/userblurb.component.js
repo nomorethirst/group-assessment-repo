@@ -1,27 +1,39 @@
-import 'app/app.styles'
+import 'app/components/userblurb/userblurb.styles'
 import templateUrl from 'app/components/userBlurb/userblurb.template'
 
 const controller = class FtUserBlurbController {
-  constructor($log, userblurbService) { // should be changed to userService and tweetService
+  constructor($log, tweetService, userService) { 
     'ngInject'
-    this.service = userblurbService
+    this.tweetService = tweetService
+    this.userService = userService
+    this.userId = userService.user.id
+    this.username = userService.user.username
+    this.email = userService.user.profile.email
     $log.debug('ft-userblurb is a go')
   }
 
   getFollowers(){
-    return this.service.userFollowers(username)
+    return this.userService.getFollowers(this.username).then((response) => {
+      return response.data
+    })
   }
 
   getFollowing(){
-    return this.service.userFollowing(username)
+    return this.userService.getFollowing(this.username).then((response) => {
+      return response.data
+    })
   }
 
   getLikes(){
-    return this.service.userLikes(username)
+    return this.tweetService.getLikesById(this.userId).then((response) => {
+      return response.data
+    })
   }
 
   getMentions(){
-    return this.service.userMentions(username)
+    return this.tweetService.getMentionsById(this.userId).then((response) => {
+      return response.data
+    })
   }
 
 
@@ -30,6 +42,6 @@ const controller = class FtUserBlurbController {
 export const ftUserBlurb = {
   controller,
   templateUrl,
-  controllerAs: 'userblurb'
+  controllerAs: 'userblurb',
 }
 

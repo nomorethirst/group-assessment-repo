@@ -1,17 +1,10 @@
-/*angular.module('app').component('followersComponent', {
-    templateUrl: 'app/components/followers/followersTemplate.html',
-    bindings: {
-        user : '='
-    }
-})*/
-
-import 'app/app.styles'
+import 'app/components/followers/followers.styles'
 import templateUrl from 'app/components/followers/followers.template'
 
 const controller = class FtFollowersController {
-  constructor($log, appService) {
+  constructor($log, userService) {
     'ngInject'
-    this.service = appService
+    this.userService = userService
     $log.debug('ft-followers is a go')
   }
 
@@ -22,6 +15,6 @@ export const ftFollowers = {
     templateUrl,
     controllerAs: 'followers',
     bindings: {
-      user: "="
+      followers: "="
     }
   }
