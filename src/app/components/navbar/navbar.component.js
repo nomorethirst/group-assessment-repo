@@ -2,11 +2,12 @@ import 'app/app.styles'
 import templateUrl from 'app/components/navbar/navbar.template'
 
 const controller = class FtNavBarController {
-  constructor($log, $state, userService) {
+  constructor($log, $state, $location, userService) {
     'ngInject'
-    this.service = userService
     this.log = $log
     this.state = $state
+    this.location = $location
+    this.service = userService
     $log.debug('ft-navbar is a go')
   }
 
@@ -41,6 +42,7 @@ const controller = class FtNavBarController {
   clickLogout() {
     if (this.service.user !== null)
       this.service.logout()
+      this.location.path('login')
   }
 }
 

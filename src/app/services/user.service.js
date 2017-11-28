@@ -1,23 +1,38 @@
-import { userTestData } from 'app/services/user.service.test.data'
-
 export class UserService {
     user = null
     credentials = null
 
-    constructor ($log, $http) {
+    constructor ($log, $http, validateService) {
         'ngInject'
         this.logger = $log
-        this.logger.log('userService is a go')
         this.http = $http
-        this.userTestData = userTestData
+        this.validateService = validateService
         this.baseUrl = 'http://localhost:8080'
-        // this.restoreState()
+        this.restoreState()
+        this.logger.log('userService is a go')
         }
 
-        authenticate(credentials) {
-            return this.userTestData.credentials.find(e => e.username === credentials.username
-                                            && e.password === credentials.password) !== undefined
-        // return window.localStorage.getItem(username) === password
+        saveState() {
+            let state = {
+                credentials: this.credentials,
+                user: this.user
+            }
+            this.logger.log('saving userState', state)
+            window.localStorage.setItem('userState', JSON.stringify(state))
+        }
+
+        restoreState() {
+            let state = JSON.parse(window.localStorage.getItem('userState'))
+            if (state) {
+                this.logger.log('restoring userState', state)
+                this.credentials = state.credentials
+                this.user = state.user
+            }
+        }
+
+        clearState() {
+            this.logger.log('clearing userState')
+            window.localStorage.clear('userState')
         }
 
         isAuthenticated() {
@@ -25,51 +40,36 @@ export class UserService {
         }
 
         login(credentials) {
-            this.credentials = credentials
-            this.user = this.userTestData.users.find(e => e.username === credentials.username)
-        // this.restoreState()
-        }
-
-        logout() {
-        // this.saveState()
-        this.user = null
-        }
-
-        getCurrentUser() {
-            return this.user
-        }
-
-        getUsers() {
-            return this.userTestData.users
-        }
-
-        getUserByUsername(username) {
-            return this.userTestData.users.find(e => e.username === username)
-        }
-
-        usernameExistsTest(username) {
-            return this.userTestData.users.find(e => e.username === username) !== undefined
-        }
-
-        usernameExists(username) {
-            return this.http.get(`${this.baseUrl}/validate/username/exists/@${username}`)
+            // validate credentials, get user, set user and credentials
+            return this.validateService.getCredentialsCheck(credentials)
                 .then(result => {
-                    return Promise.resolve(result.data)
+                    return this.getUser(credentials.username)
+                        .then(result => {
+                            this.user = result.data
+                            this.credentials = credentials
+                            this.saveState()
+                            return Promise.resolve(result)
+                        })
+                        .catch(error => {
+                            this.logger.log("Error fetching user from api")
+                            return Promise.reject(error)
+                        })
+                    return Promise.resolve(result)
                 })
                 .catch(error => {
+                    this.logger.log("Error validating credentials with api")
                     return Promise.reject(error)
                 })
         }
 
-        createUserTest(credentials, profile) {
-            this.credentials = credentials
-            this.userTestData.credentials.push(this.credentials)
-            this.user = {
-                username: credentials.username,
-                profile,
-                timestamp: Date.now()
-            }
-            this.userTestData.users.push(this.user)
+        logout() {
+        this.user = null
+        this.credentials = null
+        this.clearState()
+        }
+
+        getCurrentUser() {
+            return this.user
         }
 
         createUser(credentials, profile) {
@@ -78,6 +78,7 @@ export class UserService {
                     this.logger.log('userService.createUser result: ', result)
                     this.credentials = credentials
                     this.user = result.data
+                    this.saveState()
                     return Promise.resolve(result)
                 })
                 .catch(error => {
@@ -86,31 +87,57 @@ export class UserService {
                 })
         }
 
-        // please include all fields (email, firstName, lastName, phone) in profile (null if no value)
-        patchUser(credentials, profile) {
-            if (!this.authenticate(credentials)) {
-                return null
-            }
-            this.user = Object.assign(this.user, {profile})
+        getUsers(){
+            return this.http.get(this.baseUrl + '/users')
+        }
+
+        getUser(username = this.username) {
+            return this.http.get(this.baseUrl + '/users/@' + username)
+        }
+
+        deleteUser(credentials = this.credentials) {
+            return this.http.delete(`${this.baseUrl}/users/@${this.username}`, {credentials})
+                .then(result => {
+                    this.logger.log('userService.deleteUser result: ', result)
+                    this.logout()
+                    return Promise.resolve(result)
+                })
+                .catch(error => {
+                    this.logger.log('userService.deleteUser error: ', error)
+                    return Promise.reject(error)
+                })
+        }
+
+        patchUser(credentials = this.credentials, profile) {
+            return this.http.patch(`${this.baseUrl}/users/@${this.username}`, {credentials, profile})
+                .then(result => {
+                    this.logger.log('userService.patchUser result: ', result)
+                    this.user = result.data
+                    return Promise.resolve(result)
+                })
+                .catch(error => {
+                    this.logger.log('userService.patchUser error: ', error)
+                    return Promise.reject(error)
+                })
         }
 
         getFeed(username = this.user.username){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + username + '/feed')
+            return this.http.get(this.baseUrl + '/users/@' + username + '/feed')
         }
 
         getTweets(username = this.user.username){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + username + '/tweets')
+            return this.http.get(this.baseUrl + '/users/@' + username + '/tweets')
         }
 
         getMentions(username = this.user.username){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + username + '/mentions')
+            return this.http.get(this.baseUrl + '/users/@' + username + '/mentions')
         }
 
         getFollowers(username = this.user.username){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + username + '/followers')
+            return this.http.get(this.baseUrl + '/users/@' + username + '/followers')
         }
 
         getFollowing(username = this.user.username){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + username + '/following')
+            return this.http.get(this.baseUrl + '/users/@' + username + '/following')
         }
 }

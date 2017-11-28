@@ -6,13 +6,17 @@ const controller =
     constructor ($log, $location, userService) {
       'ngInject'
       this.service = userService
-      this.username = userService.user.username
-      this.password = userService.credentials.password
-      this.email = userService.user.profile.email
-      this.firstName = userService.user.profile.firstName
-      this.lastName = userService.user.profile.lastName
-      this.phone = userService.user.profile.phone
       this.location = $location
+      if (!this.service.isAuthenticated()) {
+        this.location.path('feed')
+      } else {
+        this.username = this.service.user.username
+        this.password = this.service.credentials.password
+        this.email = this.service.user.profile.email
+        this.firstName = this.service.user.profile.firstName
+        this.lastName = this.service.user.profile.lastName
+        this.phone = this.service.user.profile.phone
+      }
       $log.log('ft-profile is a go')
     }
 
