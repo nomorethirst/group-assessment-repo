@@ -1,0 +1,30 @@
+<div class="ft-signup">
+  <h1 class="title">Create an Account</h1>
+  <div class="form-group">
+    <label for="usr">Choose a username:</label>
+    <input type="text" ng-model="signup.username" class="form-control" id="usr" autofocus>
+  </div>
+  <div class="form-group">
+    <label for="pwd">Choose a password:</label>
+    <input type="password" ng-model="signup.password" class="form-control" id="pwd">
+  </div> 
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="text" ng-model="signup.email" class="form-control" id="email">
+  </div> 
+  <div class="form-group">
+    <label for="firstname">First name:</label>
+    <input type="text" ng-model="signup.firstName" class="form-control" id="firstname">
+  </div> 
+  <div class="form-group">
+    <label for="lastname">Last name:</label>
+    <input type="text" ng-model="signup.lastName" class="form-control" id="lastname">
+  </div> 
+  <button type="submit" class="btn btn-default" ng-click="signup.signup()">Create Account</button>
+</div>
+<label>{{signup.username}}</label></br>
+<label>{{signup.password}}</label></br>
+<label>{{signup.email}}</label></br>
+<label>{{signup.firstName}}</label></br>
+<label>{{signup.lastName}}</label></br>
+<label>{{signup.phone}}</label></br>

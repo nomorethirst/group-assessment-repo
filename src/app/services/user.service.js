@@ -2,16 +2,20 @@ import { userTestData } from 'app/services/user.service.test.data'
 
 export class UserService {
     user = null
+    credentials = null
 
-    constructor ($log) {
+    constructor ($log, $http) {
         'ngInject'
         this.logger = $log
         this.logger.log('userService is a go')
+        this.http = $http
+        this.userTestData = userTestData
+        this.baseUrl = 'http://localhost:8080/api'
         // this.restoreState()
         }
 
         authenticate(credentials) {
-            return userTestData.credentials.find(e => e.username === credentials.username
+            return this.userTestData.credentials.find(e => e.username === credentials.username
                                             && e.password === credentials.password) !== undefined
         // return window.localStorage.getItem(username) === password
         }
@@ -22,7 +26,7 @@ export class UserService {
 
         login(credentials) {
             this.credentials = credentials
-            this.user = userTestData.users.find(e => e.username === credentials.username)
+            this.user = this.userTestData.users.find(e => e.username === credentials.username)
         // this.restoreState()
         }
 
@@ -36,20 +40,50 @@ export class UserService {
         }
 
         getUsers() {
-            return userTestData.users
+            return this.userTestData.users
         }
 
         getUserByUsername(username) {
-            return userTestData.users.find(e => e.username = username)
+            return this.userTestData.users.find(e => e.username === username)
         }
 
-        createUser(credentials, profile) {
-            userTestData.credentials.push(credentials)
-            userTestData.users.push({
+        usernameExistsTest(username) {
+            return this.userTestData.users.find(e => e.username === username) !== undefined
+        }
+
+        usernameExists(username) {
+            return this.http.get(`${this.baseUrl}/validate/username/exists/@${username}`)
+                .then(result => {
+                    return Promise.resolve(result.data)
+                })
+                .catch(error => {
+                    return Promise.reject(error)
+                })
+        }
+
+        createUserTest(credentials, profile) {
+            this.credentials = credentials
+            this.userTestData.credentials.push(this.credentials)
+            this.user = {
                 username: credentials.username,
                 profile,
                 timestamp: Date.now()
-            })
+            }
+            this.userTestData.users.push(this.user)
+        }
+
+        createUser(credentials, profile) {
+            return this.http.post(`${this.baseUrl}/users`, {credentials, profile})
+                .then(result => {
+                    this.logger.log('userService.createUser result: ', result)
+                    this.credentials = credentials
+                    this.user = result.data
+                    return Promise.resolve(result)
+                })
+                .catch(error => {
+                    this.logger.log('userService.createUser error: ', error)
+                    return Promise.reject(error)
+                })
         }
 
         // please include all fields (email, firstName, lastName, phone) in profile (null if no value)
