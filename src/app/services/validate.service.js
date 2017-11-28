@@ -22,7 +22,7 @@ export class ValidateService{
         return this.http.get('http://' + HOST + ':' + PORT + '/validate/username/available/@' + username)
     }
 
-    getUsernameAvailable(creds){
+    getCredentialsCheck(creds){
         return this.http.get('http://' + HOST + ':' + PORT + '/validate/username/credentials', creds)
     }
 }
