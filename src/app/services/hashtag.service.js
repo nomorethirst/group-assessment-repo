@@ -16,6 +16,6 @@ export class HashtagService{
     }
 
     getByLabel(label){
-        return this.http.get('http://' + HOST + ':' + PORT + '/tags/' + label + )
+        return this.http.get('http://' + HOST + ':' + PORT + '/tags/' + label)
     }
 }
