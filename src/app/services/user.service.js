@@ -95,22 +95,22 @@ export class UserService {
         }
 
         getFeed(){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/' + this.user.username + '/feed')
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + this.user.username + '/feed')
         }
 
         getTweets(){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/' + this.user.username + '/tweets')
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + this.user.username + '/tweets')
         }
 
         getMentions(){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/' + this.user.username + '/mentions')
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + this.user.username + '/mentions')
         }
 
         getFollowers(){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/' + this.user.username + '/followers')
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + this.user.username + '/followers')
         }
 
         getFollowing(){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/' + this.user.username + '/following')
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + this.user.username + '/following')
         }
 }

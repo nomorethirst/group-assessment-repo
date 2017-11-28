@@ -15,10 +15,10 @@ export class ValidateService{
     }
 
     getUsernameExists(username){
-        return this.http.get('http://' + HOST + ':' + PORT + '/validate/username/exists/' + username)
+        return this.http.get('http://' + HOST + ':' + PORT + '/validate/username/exists/@' + username)
     }
 
     getUsernameAvailable(username){
-        return this.http.get('http://' + HOST + ':' + PORT + '/validate/username/avaliable/' + username)
+        return this.http.get('http://' + HOST + ':' + PORT + '/validate/username/available/@' + username)
     }
 }
