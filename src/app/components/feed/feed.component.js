@@ -8,6 +8,26 @@ const controller =
       this.userService = userService
       this.$state = $state
       this.tweetService = tweetService
+      this.tweets = [{
+          "id": "1",
+          "author": "swagdaddy",
+          "posted": "123456789",
+          "content": "This is a tweet",
+          "inReplyTo": {},
+          "repostOf": {}
+        },
+        {
+          "id": "1",
+          "author": "swagdaddy",
+          "posted": "123456789",
+          "content": "Tweet number 2 baby!",
+          "inReplyTo": {},
+          "repostOf": {}
+        }
+      ]
+
+
+
     }
   }
 
