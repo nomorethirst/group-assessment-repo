@@ -8,7 +8,7 @@
       </ul> -->
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a ui-sref="{{navbar.refProfileOrSignup}}">
+          <a ng-click='navbar.showProfileOrSignup()'>
             <span class="glyphicon glyphicon-user"></span> 
             {{navbar.userOrSignup()}}
           </a>

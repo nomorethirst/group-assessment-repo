@@ -2,10 +2,16 @@ import 'app/app.styles'
 import templateUrl from 'app/components/navbar/navbar.template'
 
 const controller = class FtNavBarController {
-  constructor($log, userService) {
+  constructor($log, $state, userService) {
     'ngInject'
     this.service = userService
+    this.log = $log
+    this.state = $state
     $log.debug('ft-navbar is a go')
+  }
+
+  showProfileOrSignup(){
+    this.state.transitionTo(this.refProfileOrSignup)
   }
 
   userOrSignup() {
@@ -16,8 +22,8 @@ const controller = class FtNavBarController {
 
   get refProfileOrSignup() {
     return this.service.user === null 
-      ? "signup" 
-      : "profile"
+      ? 'signup'
+      : 'profile'
   }
 
   loginOrLogout() {
