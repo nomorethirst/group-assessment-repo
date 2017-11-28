@@ -94,23 +94,23 @@ export class UserService {
             this.user = Object.assign(this.user, {profile})
         }
 
-        getFeed(){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + this.user.username + '/feed')
+        getFeed(username = this.user.username){
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + username + '/feed')
         }
 
-        getTweets(){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + this.user.username + '/tweets')
+        getTweets(username = this.user.username){
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + username + '/tweets')
         }
 
-        getMentions(){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + this.user.username + '/mentions')
+        getMentions(username = this.user.username){
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + username + '/mentions')
         }
 
-        getFollowers(){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + this.user.username + '/followers')
+        getFollowers(username = this.user.username){
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + username + '/followers')
         }
 
-        getFollowing(){
-            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + this.user.username + '/following')
+        getFollowing(username = this.user.username){
+            return this.http.get('http://' + HOST + ':' + PORT + '/users/@' + username + '/following')
         }
 }
