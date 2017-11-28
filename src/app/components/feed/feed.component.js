@@ -1,7 +1,7 @@
 import 'app/components/feed/feed.style'
 import templateUrl from 'app/components/feed/feed'
 
-const feed =
+const controller =
   class FeedController {
     constructor($log, $state, userService, TweetService) {
       'ngInject'

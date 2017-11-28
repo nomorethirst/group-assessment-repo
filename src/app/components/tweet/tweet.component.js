@@ -1,7 +1,7 @@
 import 'app/components/tweet/tweet.style'
 import templateUrl from 'app/components/tweet/tweet'
 
-const tweet =
+const controller =
   class TweetController {
     constructor($log, $state, userService, TweetService) {
       'ngInject'

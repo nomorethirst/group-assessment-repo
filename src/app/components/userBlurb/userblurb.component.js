@@ -1,5 +1,5 @@
 import 'app/app.styles'
-import templateUrl from 'app/components/userblurb/userblurb.template'
+import templateUrl from 'app/components/userBlurb/userblurb.template'
 
 const controller = class FtUserBlurbController {
   constructor($log, userblurbService) { // should be changed to userService and tweetService

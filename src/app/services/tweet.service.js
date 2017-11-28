@@ -11,7 +11,7 @@ export class TweetService{
     }
 
     getAll(){
-        return this.http.get('http://' + HOST + ':' + PORT + '/tweets/')
+        return this.http.get('http://' + HOST + ':' + PORT + '/tweets')
     }
 
     getById(id){

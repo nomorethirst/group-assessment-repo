@@ -6,13 +6,16 @@ const controller = class TweetAllController {
     this.service = tweetService
   }
 
-  get allTweets() {
-  	return this.service.tweets();
-  }
+  // get allTweets() {
+  // 	return this.service.tweets();
+  // }
 }
 
 export const tweetAll = {
   controller,
   templateUrl,
-  controllerAs: 'tweetAll'
+  controllerAs: 'tweetAll',
+  binding: {
+    allTweets: '='
+  }
 }

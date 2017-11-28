@@ -59,6 +59,7 @@ const resolve = {
   extensions: [
     '.js',
     '.less',
+    '.css',
     '.html'
   ],
   // allows absolute module imports (i.e. import 'foo'

@@ -3,7 +3,12 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
   const welcomeState = {
     name: 'welcome',
     url: '/welcome',
-    component: 'ftLandingPage'
+    component: 'ftLandingPage',
+    resolve: {
+      allTweets: function (tweetService) {
+        return tweetService.getAll()
+      }
+    }
     // template: '<h1 style="text-align:center;">Welcome to Ft Twitter!</h1>'
   }
   const hashtagState = {
