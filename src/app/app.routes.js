@@ -9,7 +9,6 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
         return tweetService.getAll()
       }
     }
-    // template: '<h1 style="text-align:center;">Welcome to Ft Twitter!</h1>'
   }
   const hashtagState = {
     name: 'hashtag',
@@ -35,56 +34,53 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
     name: 'feed',
     url: '/feed',
     component: 'ftFeed'
-    // template: '<h1 style="text-align:center;">Main Feed goes here.</h1>'
   }
   const userBlurbState = {
     name: 'userblurb',
     url: '/userblurb',
     component: 'ftUserBlurb'
   }
-
- const followersState = {
+  const followersState = {
     name: 'followers',
-    url: '/followers', //'/{username}/followers',
+    url: '/users/@{username}/followers',
     component: 'ftFollowers',
-    /*resolve: {
+    resolve: {
       followers: function(userService, $transition$) {
-        return userService.getAllFollowers($transition$.params().username);
+        return userService.getFollowers($transition$.params().username);
       }
-    }*/
+    }
   }
-
- const followingState = {
+  const followingState = {
     name: 'following',
-    url: '/following', //'/{username}/following',
+    url: '/users/@{username}/following',
     component: 'ftFollowing',
-    /*resolve: {
-      followers: function(userService, $transition$) {
-        return userService.getAllFollowing($transition$.params().username);
+    resolve: {
+      following: function(userService, $transition$) {
+        return userService.getFollowing($transition$.params().username);
       }
-    }*/
+    }
   }
 
- const likesState = {
+  const likesState = {
     name: 'likes',
-    url: '/likes', //'/{username}/likes',
+    url: '/tweets/{id}/likes',
     component: 'ftLikes',
-    /*resolve: {
-      followers: function(userService, $transition$) {
-        return userService.getAllLikes($transition$.params().username);
+    resolve: {
+      likes: function(tweetService, $transition$) {
+        return tweetService.getLikesById($transition$.params().id);
       }
-    }*/
+    }
   }
 
- const mentionsState = {
+  const mentionsState = {
     name: 'mentions',
-    url: '/mentions', // '/{username}/mentions',
+    url: '/tweets/{id}/mentions',
     component: 'ftMentions',
-    /*resolve: {
-      followers: function(userService, $transition$) {
-        return userService.getAllMentions($transition$.params().username);
+    resolve: {
+      mentions: function(tweetService, $transition$) {
+        return tweetService.getMentions($transition$.params().id);
       }
-    }*/
+    }
   }
 
   $locationProvider.html5Mode(true)
