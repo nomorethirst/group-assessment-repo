@@ -2,7 +2,7 @@ import 'app/app.styles'
 import templateUrl from 'app/components/userblurb/userblurb.template'
 
 const controller = class FtUserBlurbController {
-  constructor($log, userblurbService) {
+  constructor($log, userblurbService) { // should be changed to userService and tweetService
     'ngInject'
     this.service = userblurbService
     $log.debug('ft-userblurb is a go')
