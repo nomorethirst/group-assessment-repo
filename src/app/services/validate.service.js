@@ -8,7 +8,6 @@ export class ValidateService{
         this.http = $http
         this.log = $log
         $log.log('hello from ValidateService!')
-        this.getCredentialsCheck({username:'a', password:'a'})
     }
 
     getTagExists(label){
