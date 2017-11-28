@@ -1,0 +1,16 @@
+<div class="card">
+        <div class="card-block">
+             <p>Mentions ({{userblurb.getLikes().length}}):</p>
+                <ul>
+                    <li ng-repeat="tweet in userblurb.getMentions()">
+                        <div>
+                            <label>ID: </label><p>{{tweet.id}}</p>
+                            <label>Time Posted: </label><p>{{tweet.posted}}</p>
+                            <label>Content: </label><p>{{tweet.content}}</p>
+                        </div>
+                                    
+                    </li>
+                </ul>
+         </div>
+    </div>
+    
