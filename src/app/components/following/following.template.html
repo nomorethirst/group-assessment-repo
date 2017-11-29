@@ -1,7 +1,7 @@
 
    <div class="ft-following">
       <div class="card-block">
-          <p>Following ({{following.following.length}}):</p>
+          <p>Following {{following.following.data.length}}:</p>
         <button type="button" class="btn btn-info" ng-repeat="following in following.following"
         ui-sref="userPage url" ui-sref-active="active">{{following.username}}
         </button>

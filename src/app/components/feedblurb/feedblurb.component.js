@@ -2,9 +2,9 @@ import 'app/components/feedblurb/feedblurb.styles'
 import templateUrl from 'app/components/feedblurb/feedblurb.template'
 
 const controller = class FtUserFeedBlurbController {
-  constructor($log, tweetService, userService, $scope) { 
+  constructor($log, userService, $scope) { 
     'ngInject'
-    this.tweetService = tweetService
+
     this.userService = userService
     this.userId = userService.user.id
     this.username = userService.user.username
