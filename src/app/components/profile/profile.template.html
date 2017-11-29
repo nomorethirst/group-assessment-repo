@@ -1,29 +1,37 @@
-<div class="ft-profile">
+<div class="ft-profile col-centered">
   <h1 class="title">Edit Profile:</h1>
-  <div class="form-group">
-    <label for="usr">Username:</label>
-    <input type="text" ng-model="profile.username" ng-disabled=true class="form-control" id="usr" autofocus>
-  </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" ng-model="profile.password" ng-disabled=true class="form-control" id="pwd">
-  </div> 
-  <div class="form-group">
-    <label for="email">Email address:</label>
-    <input type="text" ng-model="profile.email" class="form-control" id="email" required>
-  </div> 
-  <div class="form-group">
-    <label for="firstname">First name:</label>
-    <input type="text" ng-model="profile.firstName" class="form-control" id="firstname">
-  </div> 
-  <div class="form-group">
-    <label for="lastname">Last name:</label>
-    <input type="text" ng-model="profile.lastName" class="form-control" id="lastname">
-  </div> 
-  <div class="form-group">
-    <label for="phone">Phone:</label>
-    <input type="text" ng-model="profile.phone" class="form-control" id="phone">
-  </div> 
-  <button type="submit" class="btn btn-default" ng-click="profile.updateProfile()"
-    ng-disabled="profile.email.$dirty && profile.email.$invalid">Update</button>
+  <form name="profileForm">
+    <div class="form-group">
+      <label for="usr">Username:</label>
+      <input name="username" type="text" ng-model="profile.username" ng-disabled=true class="form-control" id="usr" autofocus>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input name="password" type="password" ng-model="profile.password" ng-disabled=true class="form-control" id="pwd">
+    </div> 
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input name="email" type="email" ng-model="profile.email" class="form-control" id="email" required>
+      <span style="color:red" ng-show="profileForm.email.$dirty && profileForm.email.$invalid">
+        <span ng-show="profileForm.email.$error.required">Email is required.</span>
+        <span ng-show="profileForm.email.$error.email">Invalid email address.</span>
+      </span>
+    </div> 
+    <div class="form-group">
+      <label for="firstname">First name:</label>
+      <input type="text" ng-model="profile.firstName" class="form-control" id="firstname">
+    </div> 
+    <div class="form-group">
+      <label for="lastname">Last name:</label>
+      <input type="text" ng-model="profile.lastName" class="form-control" id="lastname">
+    </div> 
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text" ng-model="profile.phone" class="form-control" id="phone">
+    </div> 
+    <button type="submit" class="btn btn-default" ng-click="profile.updateProfile()"
+      ng-disabled="profileForm.email.$invalid">
+      Update
+    </button>
+  </form>
 </div>
