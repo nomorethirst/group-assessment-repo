@@ -59,32 +59,21 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
     name: 'followers',
     url: '/users/@{username}/followers',
     component: 'ftFollowers',
-    resolve: {
-      followers: function(userService, $transition$) {
-        return userService.getFollowers($transition$.params().username);
-      }
-    }
   }
+
   const followingState = {
     name: 'following',
     url: '/users/@{username}/following',
     component: 'ftFollowing',
-    resolve: {
-      following: function(userService, $transition$) {
-        return userService.getFollowing($transition$.params().username);
-      }
-    }
+
   }
+
   const mentionsState = {
     name: 'mentions',
     url: '/users/@{username}/mentions',
     component: 'ftMentions',
-    resolve: {
-      mentions: function(userService, $transition$) {
-        return userService.getMentions($transition$.params().username);
-      }
-    }
   }
+
   const userPageState = {
     name: 'userPage',
     url: '/users/@{username}/profile',
@@ -103,7 +92,6 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider.state(userBlurbState)
   $stateProvider.state(followersState)
   $stateProvider.state(followingState)
- // $stateProvider.state(likesState)
   $stateProvider.state(mentionsState)
   $stateProvider.state(userPageState)
 }
