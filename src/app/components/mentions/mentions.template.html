@@ -1,12 +1,11 @@
 <div class="ft-mentions">
         <div class="card-block">
-             <p>Mentioned in ({{mentions.mentions.length}}):</p>
+             <p>Mentioned in {{mentions.mentions.data.length}}:</p>
                 <ul>
                     <li ng-repeat="mentions in mentions.mentions">
                         <div>
-                            <label>ID: </label><p>{{tweet.id}}</p>
-                            <label>Time Posted: </label><p>{{tweet.posted}}</p>
-                            <label>Content: </label><p>{{tweet.content}}</p>
+                            <label class="tweet-content"></label><p>{{mentions.content}}</p>
+                            <label class="time">Time Posted: </label><p>{{mentions.posted}}</p>
                         </div>
                                     
                     </li>

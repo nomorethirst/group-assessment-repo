@@ -1,9 +1,9 @@
 
    <div class="ft-followers">
            <div class="card-block">
-               <p>Followers ({{followers.followers.length}}):</p>
+               <p>Followers {{followers.followers.data.length}}:</p>
              <button type="button" class="btn btn-info" ng-repeat="followers in followers.followers"
-             ui-sref="userPage url" ui-sref-active="active">{{followers.username}}
+             ui-sref="userPage url">{{followers.username}}
              </button>
            </div>
            </div>
