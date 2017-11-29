@@ -83,7 +83,7 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
     }
   }
 
-  const likesState = {
+  /*const likesState = {
     name: 'likes',
     url: '/tweets/{id}/likes',
     component: 'ftLikes',
@@ -92,15 +92,15 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
         return tweetService.getLikesById($transition$.params().id);
       }
     }
-  }
+  }*/
 
   const mentionsState = {
     name: 'mentions',
-    url: '/tweets/{id}/mentions',
+    url: '/users/@{username}/mentions',
     component: 'ftMentions',
     resolve: {
-      mentions: function(tweetService, $transition$) {
-        return tweetService.getMentions($transition$.params().id);
+      mentions: function(userService, $transition$) {
+        return userService.getMentions($transition$.params().username);
       }
     }
   }
@@ -122,7 +122,7 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider.state(userBlurbState)
   $stateProvider.state(followersState)
   $stateProvider.state(followingState)
-  $stateProvider.state(likesState)
+ // $stateProvider.state(likesState)
   $stateProvider.state(mentionsState)
   $stateProvider.state(userPageState)
 }
