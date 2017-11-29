@@ -5,12 +5,16 @@
 <button class="btn btn-primary" ng-click="feed.newTweet()">Chirp!</button>
 <div class="feed-container">
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-  <!--TODO Replace <blurb with whatever it is turned into-->
   <ft-user-feed-blurb id="user-blurb-feed"></ft-user-feed-blurb>
+
+  <div id="filler">
+
+  </div>
 
   <div id="tweets-in-feed">
     <ft-tweet ng-repeat="x in tweets track by $index" tweet="x"></ft-tweet>
   </div>
+
   <div id="filler">
 
   </div>
