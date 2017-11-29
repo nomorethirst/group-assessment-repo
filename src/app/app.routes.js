@@ -52,19 +52,9 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
   const userBlurbState = {
     name: 'userblurb',
     url: '/userblurb',
-    component: 'ftUserBlurb',
-    resolve: {
-      followers: function(userService) {
-        return userService.getFollowers();
-      },
-      following: function(userService) {
-        return userService.getFollowing();
-      },
-      mentions: function(userService) {
-        return userService.getMentions();
-      }
-    }
+    component: 'ftUserBlurb'
   }
+
   const followersState = {
     name: 'followers',
     url: '/users/@{username}/followers',

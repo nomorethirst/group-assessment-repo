@@ -3,6 +3,33 @@ export class BoxService{
     constructor($log){
         'ngInject'
         $log.log('box service started!')
+        // this.data = [
+        //     {
+        //        content: "eee",
+        //        author: {
+        //            username: 'travis'
+        //        },
+        //        inRepostOf: null,
+        //        inReplyTo: null
+        //     },
+        //     {
+        //         content: "damn this css is ugly",
+        //         author: {
+        //             username: 'travis'
+        //         },
+        //         inRepostOf: null,
+        //         inReplyTo: null
+        //      }
+        // ]
+        this.data = [
+            {
+               username: 'wmarttala'
+            }, 
+            {
+               username: 'mboren'
+            }
+        ]
+        this.datatype = 1
     }
 
     saveBoxData(data, datatype){
@@ -10,10 +37,10 @@ export class BoxService{
         this.datatype = datatype
     }
 
-    getBoxDataType(){
+    get boxDataType(){
         return this.datatype
     }
-    getBoxData(){
+    get boxData(){
         return this.data
     }
 }

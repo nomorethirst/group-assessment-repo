@@ -1,4 +1,5 @@
-<h1>I am a box!</h1>
-<div>
-  {{box.data}}
+<div ng-switch="box.service.boxDataType">
+    <ft-user-blurb ng-switch-when="1" ng-repeat="user in box.service.boxData track by $index" user = "user"></ft-user-blurb>
+    <ft-tweet ng-switch-when="2" ng-repeat="tweet in box.service.boxData track by $index" tweet = "tweet"></ft-tweet>
+    <ft-tweet ng-switch-when="3" ng-repeat="tweet in box.service.boxData track by $index" tweet = "tweet"></ft-tweet>
 </div>

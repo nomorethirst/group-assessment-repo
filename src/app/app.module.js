@@ -7,6 +7,7 @@ import { UserService } from 'app/services/user.service'
 import { TweetService } from 'app/services/tweet.service'
 import { HashtagService } from 'app/services/hashtag.service'
 import { ValidateService } from 'app/services/validate.service'
+import { BoxService } from 'app/services/box.service'
 
 
 // Components
@@ -48,6 +49,7 @@ export default ng
   .service('tweetService', TweetService)
   .service('hashtagService', HashtagService)
   .service('validateService', ValidateService)
+  .service('boxService', BoxService)
   .component('ftNavBar', ftNavBar)
   .component('ftApp', ftApp)
   .component('ftLogin', ftLogin)
