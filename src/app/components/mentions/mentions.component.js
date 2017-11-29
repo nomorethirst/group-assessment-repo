@@ -2,10 +2,15 @@ import 'app/components/mentions/mentions.styles'
 import templateUrl from 'app/components/mentions/mentions.template'
 
 const controller = class FtMentions {
-  constructor($log, userService) {
+  constructor($log, userService, $state) {
     'ngInject'
     this.userService = userService
-    this.username = userService.user.username
+    this.state = $state;
+		if (this.userService.isAuthenticated()) {
+			this.username = this.userService.user.username
+		} else {
+			this.username = this.state.params.username
+		}
     $log.debug('ft-mentions is a go')
     this.userMentionsList = []
   }

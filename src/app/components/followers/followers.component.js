@@ -2,18 +2,24 @@ import 'app/components/followers/followers.styles'
 import templateUrl from 'app/components/followers/followers.template'
 
 const controller = class FtFollowersController {
-  constructor($log, userService) {
+  constructor($log, userService, $state) {
     'ngInject'
     this.userService = userService
-    this.username = userService.user.username
-    $log.debug('ft-followers is a go')
+    this.state = $state;
+		if (this.userService.isAuthenticated()) {
+			this.username = this.userService.user.username
+		} else {
+      this.username = this.state.params.username
+		}
     this.followersList = []
-  }
+    $log.debug('ft-followers is a go')
 
-  getFollowers() {
+}
+
+ getFollowers() {
   	return this.userService.getFollowers(this.username).then(response => {
-  	  this.followersList = response.data
-  	})
+      this.followersList = response.data
+    })
   }
 
 }
