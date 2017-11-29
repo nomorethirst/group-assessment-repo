@@ -104,6 +104,11 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     }
   }
+  const userPageState = {
+    name: 'userPage',
+    url: '/users/@{username}/profile',
+    component: 'ftUserPage'
+  }
 
   $locationProvider.html5Mode(true)
 
@@ -119,4 +124,5 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider.state(followingState)
   $stateProvider.state(likesState)
   $stateProvider.state(mentionsState)
+  $stateProvider.state(userPageState)
 }
