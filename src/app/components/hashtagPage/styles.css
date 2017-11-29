@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
 }
 
 .headerText {
@@ -12,7 +11,7 @@
 }
 
 .hashtagIcon {
-  font-size: 28px;
+  font-size: 23px;
   font-weight: bolder;
 }
 
@@ -38,5 +37,58 @@
 }
 
 .spacing {
-	flex: .7 0 auto;
+  flex: .7 0 auto;
+}
+
+.tweets {
+  margin: 14px;
+  box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.75);
+  padding: 10px;
+
+}
+
+.tweets-firstName {
+  padding: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.tweets-lastName {
+  padding: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.tweets-userName {
+  padding: 0;
+  color: grey;
+  font-size: 16px;
+}
+
+.tweets-timestamp {
+  color: grey;
+  size: 6px;
+}
+
+#hashtagResult {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hashtagResultContainer {
+  width: 450px;
+  overflow-wrap: break-word;
+}
+
+.tweets-content {
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 2px;
+}
+
+.Icon {
+  padding-right: 10px;
+  font-size: 15px;
 }

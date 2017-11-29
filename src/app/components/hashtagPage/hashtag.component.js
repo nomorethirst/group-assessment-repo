@@ -3,9 +3,8 @@ import 'app/app.styles'
 import templateUrl from 'app/components/hashtagPage/hashtag.template'
 
 const controller = class HashtagController {
-  constructor (hashtagService) {
+  constructor () {
     'ngInject'
-    this.service = hashtagService
   }
 }
 

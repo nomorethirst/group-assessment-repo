@@ -9,8 +9,8 @@ const controller =
       this.location = $location
       this.userService = userService
       if (!this.userService.isAuthenticated()) {
-        this.location.path('feed')
-        this.logger.log('ft-profile: user not authenticated, redirecting to feed')
+        this.location.path('welcome')
+        this.logger.log('ft-profile: user not authenticated, redirecting to welcome')
       } else {
         this.username = this.userService.user.username
         this.password = this.userService.credentials.password

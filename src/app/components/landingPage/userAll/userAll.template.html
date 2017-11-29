@@ -1,3 +1,50 @@
-<div>
-  UserDiv
+<div class="trend">
+  @USER SPOTLIGHT
+</div>
+<div class="tweetAllBody">
+  <div class="tweetsNav welcome">
+	<div class="navigation previous">&laquo; </div>
+    <h2 class="navigationHelp">Scroll Left or Right to view more Tweets</h2>
+    <div class="navigation next"> &raquo;</div>
+  </div>
+  <div class="tweetSearch">
+    <div class="col-lg-8 col-md-8 col-sm-6 col-lg-offset-2 col-md-offset-2">
+      <input type="text" class="form-control" ng-model="tweetAll.search" placeholder="Search for Users by Username">
+    </div>
+  </div>
+  <div>
+    <div id="hashtagResult">
+      <div class="allUserContainer">
+  	    <div class="scrolling-wrapper" ng-repeat="user in userAll.userList | filter:tweetAll.search">
+  	      <div class="user welcome">
+            
+  	  	    <div class="user-profileContainer userall">
+  	  	      <div class="userProfilePicBorder">
+  	  	        <div class="userProfilePic">
+                  <div class="glyphicon glyphicon-user"></div>
+                </div>
+              </div>
+  	  	      <div class="user-firstName">{{user.profile.firstName}}
+  	    	    <span class="user-lastName">{{user.profile.lastName}}</span>
+  	          </div>
+  	        </div>
+  	  	    <div class="user-Username">
+  	  		  @{{user.userName}}
+  	        </div>
+  	        <div class="joined">
+  	          Joined
+  	        </div>
+            <div class="user-timestamp">
+        	  {{user.timestamp}}
+            </div>
+            <div class="tweets-icons">
+              <span class="glyphicon glyphicon-heart like Icon"></span>
+            </div>
+            </div>
+  	      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

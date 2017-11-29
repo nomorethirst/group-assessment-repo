@@ -1,6 +1,48 @@
-<a href="" class="navigation previous">&laquo;</a>
-<a href="" class="navigation next">&raquo;</a>
+<div class="trend" ng-init="tweetAll.allTweets">
+  #TRENDING NOW
+</div>
+<div class="tweetAllBody">
+  <div class="tweetsNav welcome">
+	<div class="navigation previous">&laquo; </div>
+    <h2 class="navigationHelp">Scroll Left or Right to view more Tweets</h2>
+    <div class="navigation next"> &raquo;</div>
+  </div>
+  <div class="tweetSearch">
+    <div class="col-lg-8 col-md-8 col-sm-6 col-lg-offset-2 col-md-offset-2">
+      <input type="text" class="form-control" ng-model="tweetAll.search" placeholder="Search for Tweets by Hashtags">
+    </div>
+  </div>
+  <div>
+    <div id="hashtagResult">
+      <div class="allTweetContainer">
+  	    <div class="scrolling-wrapper" ng-repeat="tweet in tweetAll.tweetList | filter:tweetAll.search">
+  	      <div class="tweets welcome">
 
-<ul ng-repeat="tweet in tweetAll.allTweets">
-  <li>{{tweet.content}}</li>
-</ul>
+  	  	    <div class="tweets-profileContainer">
+              <div class=""></div>
+  	  	      <span class="tweets-firstName">{{tweet.author.profile.firstName}}
+  	    	    <span class="tweets-lastName">{{tweet.author.profile.lastName}}</span>
+  	          </span>
+  	  	      <div class="tweets-Username">
+  	  		    @{{tweet.author.username}}
+  	          </div>
+  	        </div>
+
+  	        <div class="tweets-content welcome">
+  	    	  {{tweet.content}}
+  	        </div>
+            <div class="tweets-timestamp">
+        	  {{tweet.timestamp}}
+            </div>
+            <div class="tweets-icons">
+              <span class="glyphicon glyphicon-share-alt reply Icon"></span>
+              <span class="glyphicon glyphicon-retweet retweet Icon"></span>
+              <span class="glyphicon glyphicon-heart like Icon">
+              </span>
+            </div>
+  	      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
