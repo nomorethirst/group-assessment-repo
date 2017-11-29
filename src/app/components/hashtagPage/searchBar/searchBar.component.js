@@ -10,23 +10,17 @@ const controller = class SearchBarController {
   }
   
   get findTweets() {
-  	this.foundTweets = this.service.getByLabel(this.hashtag)
+  	return this.service.getByLabel(this.hashtag).then((response) => {
+      this.foundTweets = response.data
+      return response.data
+    })
   }
 
   get allHashtags() {
-  	let randomTagList = []
-  	let allHashTags = this.service.getAll()
-  	let i = 0;
-    while (i < 6) {
-      let tempTag = allHashTags[Math.floor((Math.random() * allHashTags.length))]
-      if (randomTagList.includes(tempTag)) {
-      	tempTag = allHashTags[Math.floor((Math.random() * allHashTags.length))]
-      } else {
-        randomTagList.push(tempTag)
-        i++;
-      }
-    }
-    this.randomTweets = randomTagList
+  	return this.service.getAll().then((response) => {
+      this.randomTweets = response.data
+      return response.data
+    })
   }
 }
 

@@ -1,4 +1,4 @@
-<div class="trend">
+<div class="trend" ng-init="tweetAll.allTweets">
   #TRENDING NOW
 </div>
 <div class="tweetAllBody">
@@ -24,7 +24,7 @@
   	    	    <span class="tweets-lastName">{{tweet.author.profile.lastName}}</span>
   	          </span>
   	  	      <div class="tweets-Username">
-  	  		    @{{tweet.author.userName}}
+  	  		    @{{tweet.author.username}}
   	          </div>
   	        </div>
 

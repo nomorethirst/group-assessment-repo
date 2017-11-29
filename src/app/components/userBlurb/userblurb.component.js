@@ -35,8 +35,6 @@ const controller = class FtUserBlurbController {
       return response.data
     })
   }
-
-
 }
 
 export const ftUserBlurb = {
