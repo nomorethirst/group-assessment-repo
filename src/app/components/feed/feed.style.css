@@ -3,6 +3,7 @@ ft-feed {
   width: 100vw;
   display: inline-block;
   padding-top: 64px;
+  overflow: visible;
 }
 
 ft-tweet {
@@ -72,7 +73,7 @@ ft-tweet {
   margin-bottom: 16px;
 }
 
-.textarea {
+#new-tweet-text {
   width: 20vw;
   height: 10vh;
 }

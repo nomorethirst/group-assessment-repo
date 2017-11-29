@@ -28,6 +28,7 @@ import { ftFollowers } from 'app/components/followers/followers.component'
 import { ftFollowing } from 'app/components/following/following.component'
 import { ftLikes } from 'app/components/likes/likes.component'
 import { ftMentions } from 'app/components/mentions/mentions.component'
+import { ftBox } from 'app/components/tweetInfoBox/box.component'
 
 //
 import { ftUserFeedBlurb } from 'app/components/feedblurb/feedblurb.component'
@@ -64,6 +65,7 @@ export default ng
   .component('ftFollowing', ftFollowing)
   .component('ftLikes', ftLikes)
   .component('ftMentions', ftMentions)
+  .component('ftBox', ftBox)
   //
   .component('ftUserFeedBlurb', ftUserFeedBlurb)
   //

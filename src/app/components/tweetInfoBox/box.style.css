@@ -1,0 +1,10 @@
+ft-box {
+  background-color: red;
+  position: fixed;
+  top: 33vh;
+  left: 33vw;
+  width: 33vw;
+  height: 33vh;
+  min-height: 256px;
+  min-width: 256px;
+}

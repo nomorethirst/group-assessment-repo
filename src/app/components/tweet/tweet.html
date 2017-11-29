@@ -2,9 +2,9 @@
 <tweet tweet="tweet.tweet.repostOf"></tweet>
 <p class="tweet-content" ng-bind-html="tweet.tweet.content"></p>
 <div class="tweet-buttons">
-  <div class="btn btn-sm btn-danger ">{{$ctrl.tweet.getLikes.length}} likes</div>
-  <div class="btn btn-sm btn-danger">{{$ctrl.tweet.getReplies.length}} replies</div>
-  <div class="btn btn-sm btn-danger">{{$ctrl.tweet.getRetweets.length}} retweets</div>
-  <div class="btn btn-sm btn-danger  glyphicon-envelope"> Reply</div>
-  <div class="btn btn-sm btn-danger  glyphicon-duplicate"> Retweet</div>
+  <div ng-click="tweet.openBox(1)" class="btn btn-sm btn-danger ">{{$ctrl.tweet.getLikes.length}} likes</div>
+  <div ng-click="tweet.openBox(2)" class="btn btn-sm btn-danger">{{$ctrl.tweet.getReplies.length}} replies</div>
+  <div ng-click="tweet.openBox(3)" class="btn btn-sm btn-danger">{{$ctrl.tweet.getRetweets.length}} retweets</div>
+  <div ng-click="tweet.openBox(4)" class="btn btn-sm btn-danger  glyphicon-envelope"> Reply</div>
+  <div ng-click="tweet.openBox(5)" class="btn btn-sm btn-danger  glyphicon-duplicate"> Retweet</div>
 </div>
