@@ -1,5 +1,5 @@
 let HOST = 'localhost'
-let PORT = 8080
+let PORT = '8080'
 
 export class ValidateService{
 
@@ -15,10 +15,14 @@ export class ValidateService{
     }
 
     getUsernameExists(username){
-        return this.http.get('http://' + HOST + ':' + PORT + '/validate/username/exists/' + username)
+        return this.http.get('http://' + HOST + ':' + PORT + '/validate/username/exists/@' + username)
     }
 
-    getUsernameAvaliable(username){
-        return this.http.get('http://' + HOST + ':' + PORT + '/validate/username/avaliable' + username)
+    getUsernameAvailable(username){
+        return this.http.get('http://' + HOST + ':' + PORT + '/validate/username/available/@' + username)
+    }
+
+    getCredentialsCheck(creds){
+        return this.http.post('http://' + HOST + ':' + PORT + '/validate/username/credentials', creds)
     }
 }

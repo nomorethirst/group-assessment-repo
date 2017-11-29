@@ -9,10 +9,14 @@ const controller =
       this.$state = $state
       this.tweetService = tweetService
     }
+
   }
 
 export const ftTweet = {
   controller,
   templateUrl,
-  controllerAs: 'tweet'
+  controllerAs: 'tweet',
+  bindings: {
+    tweet: "="
+  }
 }

@@ -1,6 +1,6 @@
-<h2>@{{$ctrl.tweet.getUsername()}}</h2>
-<p>{{$ctrl.tweet.getContents()}}</p>
-<div class="btn btn-sm btn-primary ">{{$ctrl.tweet.getLikes.length}} likes</div>
-<div class="btn btn-sm btn-primary">{{$ctrl.tweet.getReplies.length}} replies</div>
-<div class="btn btn-sm btn-primary">{{$ctrl.tweet.getRetweets.length}} retweets</div>
-<tweet ng-for="x in tweet.getReplies" tweet="x"></tweet>
+<h2 class="tweet-author">@{{tweet.tweet.author}}</h2>
+<tweet tweet="tweet.tweet.repostOf"></tweet>
+<p class="tweet-content">{{tweet.tweet.content}}</p>
+<div class="btn btn-sm btn-danger ">{{$ctrl.tweet.getLikes.length}} likes</div>
+<div class="btn btn-sm btn-danger">{{$ctrl.tweet.getReplies.length}} replies</div>
+<div class="btn btn-sm btn-danger">{{$ctrl.tweet.getRetweets.length}} retweets</div>

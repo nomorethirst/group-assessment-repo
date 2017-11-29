@@ -5,15 +5,21 @@ const controller =
   class FtProfileController {
     constructor ($log, $location, userService) {
       'ngInject'
-      this.service = userService
-      this.username = userService.user.username
-      this.password = userService.credentials.password
-      this.email = userService.user.profile.email
-      this.firstName = userService.user.profile.firstName
-      this.lastName = userService.user.profile.lastName
-      this.phone = userService.user.profile.phone
+      this.logger = $log
       this.location = $location
-      $log.log('ft-profile is a go')
+      this.userService = userService
+      if (!this.userService.isAuthenticated()) {
+        this.location.path('feed')
+        this.logger.log('ft-profile: user not authenticated, redirecting to feed')
+      } else {
+        this.username = this.userService.user.username
+        this.password = this.userService.credentials.password
+        this.email = this.userService.user.profile.email
+        this.firstName = this.userService.user.profile.firstName
+        this.lastName = this.userService.user.profile.lastName
+        this.phone = this.userService.user.profile.phone
+        this.logger.log('ft-profile is a go')
+      }
     }
 
     updateProfile() {
@@ -23,7 +29,7 @@ const controller =
         document.getElementById("email").focus()
         return
       }
-      let result = this.service.patchUser({
+      let result = this.userService.patchUser({
           username: this.username,
           password: this.password
         }, {

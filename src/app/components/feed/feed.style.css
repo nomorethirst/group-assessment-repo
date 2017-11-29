@@ -1,13 +1,39 @@
-tweet {
-  background-color: lightBlue;
-  border-radius: 32px;
+ft-tweet {
+  max-width: 33vw;
+  background-color: lightblue;
+  display: inline-block;
+  padding: 32px;
+  margin: 32px;
 }
 
-.tweet-content {
+.tweet-author {
   font-family: 'Indie Flower', cursive;
   border-bottom: 2px solid grey;
 }
 
+.tweet-content {
+  margin-top: 22px;
+}
+
 .tweet-reply {
   left: 32px;
+}
+
+.feed-container {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+
+#tweets-in-feed {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
+
+#user-blurb-feed {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex: 1;
 }
