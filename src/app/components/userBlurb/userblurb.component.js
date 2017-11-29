@@ -9,7 +9,6 @@ const controller = class FtUserBlurbController {
     this.userId = userService.user.id
     this.username = userService.user.username
     this.email = userService.user.profile.email
-    $log.log(this.likes)
     $log.debug('ft-userblurb is a go')
   }
 }
@@ -19,7 +18,6 @@ export const ftUserBlurb = {
   templateUrl,
   controllerAs: 'userblurb',
   bindings:{
-    likes: '=',
     mentions: '=',
     followers: '=',
     following: '='

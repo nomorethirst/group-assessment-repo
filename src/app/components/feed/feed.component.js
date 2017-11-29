@@ -9,7 +9,6 @@ const controller =
       this.$state = $state
       this.tweetService = tweetService
       this.$onInit = () => {
-        $log.log(this.userFollowers)
         this.userService.saveUserData({
           followers: this.userFollowers.data,
           following: this.userFollowing.data,
