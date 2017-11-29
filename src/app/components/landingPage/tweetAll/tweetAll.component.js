@@ -4,12 +4,17 @@ const controller = class TweetAllController {
   constructor($log, tweetService) {
     'ngInject'
     this.service = tweetService
+    this.tweetList = this.service.getAll()
+    this.search = ""
   }
 
-  // get allTweets() {
-  // 	return this.service.tweets();
-  // }
+  tweetFilter() {
+    this.tweetList = tweetList.filter(tweets => tweets.label.includes(this.search))
+    log(tweetList)
+  }
 }
+
+
 
 export const tweetAll = {
   controller,

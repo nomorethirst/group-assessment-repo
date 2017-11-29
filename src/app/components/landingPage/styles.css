@@ -1,11 +1,46 @@
+.tweetAllBody {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.userAllBody {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
 .landingPage-BodyContainer {
   display: flex;
   flex-direction: column;
 }
 
+.tweetsNav.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.navigation {
+  font-size: 30px;
+}
+.navigationHelp {
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+
+.navigation.previous {
+  margin-right: 20px;
+}
+
+.navigation.next {
+  margin-left: 20px;
+}
+
 .landingPage-Body {
   display: flex;
-  height: 90%;
+  height: 90vh;
   justify-content: center;
 }
 
@@ -13,8 +48,99 @@
 	align-self: center;
 }
 
-.tweetAll {
+.trend {
+  font-size: 40px;
+  font-weight: bolder;
+  margin: 0 0 0 20px;
+}
+
+.allTweetContainer {
   display: flex;
-  flex-direction: row;
-  color: red;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  height: 40vh;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tweets.welcome {
+	flex: 0 0 auto;
+	margin-right: 3px;
+  }
+}
+
+.allUserContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  height: 50vh;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .user.welcome {
+	flex: 0 0 auto;
+	margin-right: 3px;
+  }
+
+}
+.tweets.welcome {
+  width: 400px;
+  overflow-wrap: break-word;
+}
+
+.tweets-content.welcome {
+  font-size: 2vh;
+}
+
+.user.welcome {
+  width: 230px;
+  height: 280px;
+  margin: 7px;
+  margin-top: 12px;
+  overflow-wrap: break-word;
+  text-align: center;
+  box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.75);
+
+}
+
+.user-firstName {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.user-lastName {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.user-Username {
+   margin-top: 10px;
+   color: grey;
+}
+
+.userProfilePic {
+  font-size: 70px;
+}
+
+.userProfilePicBorder {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  margin: 0 auto;
+}
+.user-profileContainer.userall {
+  padding: 20px;
+  margin: 0 px;
+  background-color: #5bc0de;
+}
+
+.profileWhiteBackground {
+  background-color: white;
 }

@@ -2,29 +2,20 @@ import templateUrl from 'app/components/hashtagPage/searchBar/searchBar.template
 import 'app/app.styles'
 
 const controller = class SearchBarController {
-  constructor (hashtagService, $anchorScroll, $location) {
+  constructor ($scope, hashtagService) {
     'ngInject'
     this.service = hashtagService
+    this.foundTweets = []
+    this.randomTweets = []
   }
-
-  randomTagList = []
-
-  init(){
-  	allHashtags();
-  }
-
-  gotoBottom() {
-    $location.hash('hashtagResult')
-    this.$anchorScroll();
-  }
-
+  
   get findTweets() {
-  	this.gotoBottom();
-  	return this.service.tweets(this.hashtag)
+  	this.foundTweets = this.service.getByLabel(this.hashtag)
   }
 
   get allHashtags() {
-  	let allHashTags = this.service.allHashtags()
+  	let randomTagList = []
+  	let allHashTags = this.service.getAll()
   	let i = 0;
     while (i < 6) {
       let tempTag = allHashTags[Math.floor((Math.random() * allHashTags.length))]
@@ -35,12 +26,7 @@ const controller = class SearchBarController {
         i++;
       }
     }
-  }
-
-  init
-
-  get hashtagsList() {
-  	return randomTagList; 
+    this.randomTweets = randomTagList
   }
 }
 
