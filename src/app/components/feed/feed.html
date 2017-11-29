@@ -1,10 +1,20 @@
+<h1 class="feed-head">Welcome to today's drama, {{feed.user.username}}</h1>
+
+<textarea placeholder="Add more drama!" ng-model="feed.newTweetText"></textarea>
+<br />
+<button class="btn btn-primary" ng-click="feed.newTweet()">Chirp!</button>
 <div class="feed-container">
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-  <!--TODO Replace <blurb with whatever it is turned into-->
-  <ft-user-blurb id="user-blurb-feed"></ft-user-blurb>
-
+  <div id="filler">
+    <!-- Commented out until infinate loop is fixed
+    <ft-user-blurb id="user-blurb-feed"></ft-user-blurb>
+  -->
+  </div>
   <div id="tweets-in-feed">
-    <ft-tweet ng-repeat="x in feed.tweets" tweet="x"></ft-tweet>
+    <ft-tweet ng-repeat="x in tweets track by $index" tweet="x"></ft-tweet>
+  </div>
+  <div id="filler">
+
   </div>
 
 </div>
