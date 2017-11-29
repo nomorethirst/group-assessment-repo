@@ -6,8 +6,15 @@ const controller = class FtFollowingController {
     'ngInject'
     this.userService = userService
     $log.debug('ft-following is a go')
+    this.followingList = []
   }
 
+
+  getFollowing(){
+    return this.userService.getFollowing(this.username).then(response => {
+  	  this.followingList = response.data
+  	})
+  }
 }
 
 
@@ -15,7 +22,7 @@ export const ftFollowing = {
     controller,
     templateUrl,
     controllerAs: 'following',
-    binding: {
+    /*binding: {
       following : '='
-    }
+    }*/
   }
