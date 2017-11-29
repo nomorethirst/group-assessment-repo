@@ -8,8 +8,17 @@ export class UserService {
         this.http = $http
         this.validateService = validateService
         this.baseUrl = 'http://localhost:8080'
+        this.userData = null
         this.restoreState()
         this.logger.log('userService is a go')
+        }
+
+        saveUserData(userData){
+            this.userData = userData
+        }
+
+        getUserData(){
+            return this.userData
         }
 
         saveState() {
@@ -51,13 +60,11 @@ export class UserService {
                             return Promise.resolve(result)
                         })
                         .catch(error => {
-                            this.logger.log("Error fetching user from api")
                             return Promise.reject(error)
                         })
                     return Promise.resolve(result)
                 })
                 .catch(error => {
-                    this.logger.log("Error validating credentials with api")
                     return Promise.reject(error)
                 })
         }

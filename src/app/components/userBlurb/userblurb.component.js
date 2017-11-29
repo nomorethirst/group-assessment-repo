@@ -9,39 +9,20 @@ const controller = class FtUserBlurbController {
     this.userId = userService.user.id
     this.username = userService.user.username
     this.email = userService.user.profile.email
+    $log.log(this.likes)
     $log.debug('ft-userblurb is a go')
   }
-
-  getFollowers(){
-    return this.userService.getFollowers(this.username).then((response) => {
-      return response.data
-    })
-  }
-
-  getFollowing(){
-    return this.userService.getFollowing(this.username).then((response) => {
-      return response.data
-    })
-  }
-
-  getLikes(){
-    return this.tweetService.getLikesById(this.userId).then((response) => {
-      return response.data
-    })
-  }
-
-  getMentions(){
-    return this.tweetService.getMentionsById(this.userId).then((response) => {
-      return response.data
-    })
-  }
-
-
 }
 
 export const ftUserBlurb = {
   controller,
   templateUrl,
   controllerAs: 'userblurb',
+  bindings:{
+    likes: '=',
+    mentions: '=',
+    followers: '=',
+    following: '='
+  }
 }
 

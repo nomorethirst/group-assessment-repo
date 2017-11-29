@@ -2,13 +2,12 @@
     <div class="card-block">
         <h4 class="card-title">@{{userblurb.username}}</h4>
         <h6 class="card-subtitle mb-2 text-muted">Email: {{userblurb.email}}</h6>
-        <a ui-sref="followers" ui-sref-active="active">Followers: {{userblurb.getFollowers(this.username).length}} </a>
+        <a ui-sref="followers" ui-sref-active="active">Followers: {{userblurb.followers.data.length}} </a>
     <br>
-        <a ui-sref="following" ui-sref-active="active">Following: {{userblurb.getFollowing(this.username).length}} </a>
+        <a ui-sref="following" ui-sref-active="active">Following: {{userblurb.following.data.length}} </a>
     </br>
-        <a ui-sref="likes" ui-sref-active="active">Likes: {{userblurb.getLikes(this.userId).length}}</a>
+        <!-- <a ui-sref="likes" ui-sref-active="active">Likes: {{userblurb.likes.length}}</a> -->
     <br>
-        <a ui-sref="mentions" ui-sref-active="active">Mentions: {{userblurb.getMentions(this.userId).length}}</a>
+        <a ui-sref="mentions" ui-sref-active="active">Mentions: {{userblurb.mentions.data.length}}</a>
     </br>
 </div> 
-</div>

@@ -33,12 +33,34 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
   const feedState = {
     name: 'feed',
     url: '/feed',
-    component: 'ftFeed'
+    component: 'ftFeed',
+    resolve: {
+      userFollowers: function(userService) {
+        return userService.getFollowers();
+      },
+      userFollowing: function(userService) {
+        return userService.getFollowing();
+      },
+      userMentions: function(userService) {
+        return userService.getMentions();
+      }
+    }
   }
   const userBlurbState = {
     name: 'userblurb',
     url: '/userblurb',
-    component: 'ftUserBlurb'
+    component: 'ftUserBlurb',
+    resolve: {
+      followers: function(userService) {
+        return userService.getFollowers();
+      },
+      following: function(userService) {
+        return userService.getFollowing();
+      },
+      mentions: function(userService) {
+        return userService.getMentions();
+      }
+    }
   }
   const followersState = {
     name: 'followers',
