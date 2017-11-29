@@ -12,7 +12,6 @@ const controller = class TweetAllController {
   get allTweets() {
     return this.service.getAll().then(response => {
       this.tweetList = response.data
-      this.logger.log(this.tweetList)
       return response.data
     })
   }

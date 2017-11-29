@@ -13,11 +13,6 @@ const controller = class userAllController {
       return response.data;
     })
   }
-
-  convertTime(timeInMillis) {
-  	return new Date(timeInMillis).toString();
-  }
-
 }
 
 export const userAll = {

@@ -58,7 +58,7 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  height: 40vh;
+  height: 30vh;
   width: 100%;
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
@@ -98,49 +98,40 @@
 }
 
 .user.welcome {
-  width: 230px;
-  height: 280px;
-  margin: 7px;
-  margin-top: 12px;
+  width: 220px;
+  height: 330px;
+  margin: 10px;
+  margin-top: 15px;
   overflow-wrap: break-word;
   text-align: center;
   box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.75);
-
 }
 
-.user-firstName {
-  margin-top: 10px;
-  font-size: 22px;
-  font-weight: bold;
+.animate-enter, 
+.animate-leave
+{ 
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space:nowrap;
+} 
+ 
+.animate-leave.animate-leave-active,
+.animate-enter {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
 }
-
-.user-lastName {
-  margin-top: 10px;
-  font-size: 22px;
-  font-weight: bold;
-}
-.user-Username {
-   margin-top: 10px;
-   color: grey;
-}
-
-.userProfilePic {
-  font-size: 70px;
-}
-
-.userProfilePicBorder {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  background-color: white;
-  margin: 0 auto;
-}
-.user-profileContainer.userall {
-  padding: 20px;
-  margin: 0 px;
-  background-color: #5bc0de;
-}
-
-.profileWhiteBackground {
-  background-color: white;
+ 
+.animate-enter.animate-enter-active, 
+.animate-leave {
+    opacity: 1;
+    width: 150px;
+    height: 30px;
 }

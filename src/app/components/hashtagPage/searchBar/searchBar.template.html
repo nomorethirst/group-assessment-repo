@@ -8,7 +8,7 @@
       <span class="input-group-addon"><div class="hashtagIcon">#</div></span>
       <input type="text" class="form-control input-lg" ng-model="searchBar.hashtag" placeholder="What are you looking for?">
       <span class="input-group-btn">
-  	    <button type="button" class="btn btn-info btn-lg">
+  	    <button type="button" class="btn btn-info btn-lg" style="margin:0">
           <span type="button" class="glyphicon glyphicon-search" ng-click="searchBar.findTweets"><span class="searchText"> Search</span></span>
         </button>
       </span>
@@ -18,7 +18,7 @@
   <div class="hashtagCaption">Get started with some Hashtags</div>
   <div class="col-lg-10 col-md-10 col-sm-8">
   	<div class="randomTagContainer">
-  	  <div ng-repeat="hashtag in searchBar.randomTweets">
+  	  <div ng-animate="'animate'"ng-repeat="hashtag in searchBar.randomTweets | filter:searchBar.hashtag">
   	  	<div class="randomHashtags">#{{hashtag.label}}</div>
   	  </div>
     </div>
@@ -28,7 +28,7 @@
 
 <div id="hashtagResult">
   <div class="hashtagResultContainer">
-  	<div ng-repeat="tweet in searchBar.foundTweets">
+  	<div ng-animate="'animate'" ng-repeat="tweet in searchBar.foundTweets">
   	  <div class="tweets">
 
   	  	<div class="tweets-profileContainer">
