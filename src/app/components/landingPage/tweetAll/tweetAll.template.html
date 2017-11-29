@@ -16,7 +16,9 @@
     <div id="hashtagResult">
       <div class="allTweetContainer">
   	    <div class="scrolling-wrapper" ng-repeat="tweet in tweetAll.tweetList | filter:tweetAll.search">
-  	      <ft-tweet tweet=tweet></ft-tweet>
+          <div class="tweets welcome">
+  	        <ft-tweet tweet=tweet></ft-tweet>
+          </div>
         </div>
       </div>
     </div>

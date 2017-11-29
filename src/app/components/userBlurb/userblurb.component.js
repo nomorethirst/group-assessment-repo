@@ -6,11 +6,15 @@ const controller = class FtUserBlurbController {
     'ngInject'
     
     this.userService = userService
+    /*
     this.userId = userService.user.id
     this.username = userService.user.username
     this.email = userService.user.profile.email
+    */
     $log.debug('ft-userblurb is a go')
   }
+
+
 }
 
 export const ftUserBlurb = {
@@ -20,7 +24,8 @@ export const ftUserBlurb = {
   bindings:{
     mentions: '=',
     followers: '=',
-    following: '='
+    following: '=',
+    userblurb: '='
   }
 }
 
