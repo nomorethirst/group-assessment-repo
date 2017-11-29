@@ -9,6 +9,7 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
+const webpackConfig = require('./webpack.config.js')
 
 // lets us see & debug pre-compiled code in the browsery
 // different values have different levels of quality and
@@ -18,6 +19,8 @@ const devtool =
 
 // what are the primary "main methods" of our app?
 const entry = {
+
+
   // we only have one right now, main.js, which loads
   // our app.module, bootstrapping our app
   main: [
@@ -48,8 +51,8 @@ const entry = {
 
 // where webpack puts its compilation results
 const output = {
-  path: path.resolve(__dirname, 'dist'),
-  filename: '[name].[hash].js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[hash].js'
 }
 
 // rules for how webpack finds imported files
@@ -151,6 +154,7 @@ const rules = [{
 // to the loading of individual modules, but instead
 // apply to the entire webpack build process
 const plugins = [
+
   // the HtmlWebpackPlugin is used to inject our compiled
   // javascript files into a given template
   // index.html file, allowing us to use auto-generated
