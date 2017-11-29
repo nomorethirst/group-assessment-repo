@@ -13,7 +13,6 @@ const controller = class UserWidgetController {
         this.followingList = this.service.getFollowing(this.service.getUserData.username).then(response => {
         	return response.data
         })
-        this.followingList[0] = "Braddy"
         if (this.followingList) {
           this.logger.log(this.followingList)
           for (user in this.followingList) {
@@ -33,7 +32,7 @@ const controller = class UserWidgetController {
 
   convertTime(timeInMillis) {
   	var options = {  
-      hour: "2-digit", minute: "2-digit", weekday: "long", 
+      hour: "2-digit", minute: "2-digit", weekday: "short", 
       year: "numeric", month: "short", day: "numeric"   
     }  
   	return new Date(timeInMillis).toLocaleTimeString("en-us", options)

@@ -59,3 +59,8 @@
   font-weight: bold;
   margin-bottom: 5px;
 }
+
+.userWidget-social {
+  display: inline-block;
+  margin: 0 auto;
+}
