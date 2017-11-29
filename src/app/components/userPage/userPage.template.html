@@ -1,5 +1,58 @@
-<div class="body">
-  <user-blurb class="userProfile"></user-blurb>
+<div class="profileContainer">
 
-  <user-tweet class="userTweet"></user-tweet>
+  <div ng-init="userPage.getUser(); userPage.getTweets()">
+    <div class="user welcome">
+      <a ui-sref="userPage({username: user.username})">
+  	    <div class="user-profileContainer userall">
+  	      <div class="userProfilePicBorder">
+  	        <div class="userProfilePic">
+              <div class="glyphicon glyphicon-user"></div>
+            </div>
+          </div>
+  	  	  <div class="user-firstName">{{userPage.user.profile.firstName}}
+  	        <span class="user-lastName">{{userPage.user.profile.lastName}}</span>
+  	      </div>
+  	    </div>
+      </a>
+      <div class="user-Username">
+  	    @{{userPage.username}}
+      </div>
+      <div class="joined">
+  	    Joined
+      </div>
+      <div class="user-timestamp">
+        {{userPage.convertTime(userPage.timestamp)}}
+      </div>
+      <div class="tweets-icons">
+        <span class="glyphicon glyphicon-heart like Icon"></span>
+      </div>
+    </div>
+  </div>
+  <div class="userTweetsContainer">
+    <div class="verticalScrollWrapper" ng-repeat="tweet in userPage.userTweetList">
+      <div class="tweets userPage">
+  	    <div class="tweets-profileContainer">
+          <div class=""></div>
+  	  	  <span class="tweets-firstName">{{tweet.author.profile.firstName}}
+  	        <span class="tweets-lastName">{{tweet.author.profile.lastName}}</span>
+  	      </span>
+  	  	  <div class="tweets-Username">
+  	  	    @{{tweet.author.username}}
+  	      </div>
+  	    </div>
+
+  	    <div class="tweets-content welcome">
+  	      {{tweet.content}}
+  	    </div>
+        <div class="tweets-timestamp">
+          {{tweetAll.convertTime(tweet.posted)}}
+        </div>
+        <div class="tweets-icons">
+          <span class="glyphicon glyphicon-share-alt reply Icon"></span>
+          <span class="glyphicon glyphicon-retweet retweet Icon"></span>
+          <span class="glyphicon glyphicon-heart like Icon"></span>
+        </div>
+  	  </div>
+    </div>
+  </div>
 </div>

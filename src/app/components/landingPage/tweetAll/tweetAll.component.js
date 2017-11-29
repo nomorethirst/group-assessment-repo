@@ -11,13 +11,15 @@ const controller = class TweetAllController {
 
   get allTweets() {
     return this.service.getAll().then(response => {
-      this.tweetList = response.data;
-      return response.data;
+      this.tweetList = response.data
+      return response.data
     })
   }
+
+  convertTime(timeInMillis) {
+    return new Date(timeInMillis).toString()
+  }
 }
-
-
 
 export const tweetAll = {
   controller,

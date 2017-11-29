@@ -4,7 +4,18 @@ const controller = class userAllController {
   constructor($log, userService) {
   	'ngInject'
   	this.service = userService
-  	this.userList = this.service.getUsers()
+  	this.userList = []
+  }
+
+  get allUsers() {
+    return this.service.getUsers().then(response => {
+      this.userList = response.data;
+      return response.data;
+    })
+  }
+
+  convertTime(timeInMillis) {
+  	return new Date(timeInMillis).toString();
   }
 
 }
@@ -12,5 +23,8 @@ const controller = class userAllController {
 export const userAll = {
   controller,
   templateUrl,
-  controllerAs: 'userAll'
+  controllerAs: 'userAll',
+  binding: {
+  	allUsers: '=' 
+  }
 }

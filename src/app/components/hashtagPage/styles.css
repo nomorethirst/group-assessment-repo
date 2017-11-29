@@ -91,4 +91,5 @@
 .Icon {
   padding-right: 10px;
   font-size: 15px;
+  z-index: 3;
 }

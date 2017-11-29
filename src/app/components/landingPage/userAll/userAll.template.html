@@ -1,4 +1,4 @@
-<div class="trend">
+<div class="trend" ng-init="userAll.allUsers">
   @USER SPOTLIGHT
 </div>
 <div class="tweetAllBody">
@@ -8,7 +8,7 @@
     <div class="navigation next"> &raquo;</div>
   </div>
   <div class="tweetSearch">
-    <div class="col-lg-8 col-md-8 col-sm-6 col-lg-offset-2 col-md-offset-2">
+    <div class="col-lg-8 col-md-8 col-sm-6 col-lg-offset-2 col-md-offset-2 col-sm-offset-3">
       <input type="text" class="form-control" ng-model="tweetAll.search" placeholder="Search for Users by Username">
     </div>
   </div>
@@ -17,7 +17,7 @@
       <div class="allUserContainer">
   	    <div class="scrolling-wrapper" ng-repeat="user in userAll.userList | filter:tweetAll.search">
   	      <div class="user welcome">
-            
+            <a ui-sref="userPage({username: user.username})">
   	  	    <div class="user-profileContainer userall">
   	  	      <div class="userProfilePicBorder">
   	  	        <div class="userProfilePic">
@@ -28,14 +28,15 @@
   	    	    <span class="user-lastName">{{user.profile.lastName}}</span>
   	          </div>
   	        </div>
+            </a>
   	  	    <div class="user-Username">
-  	  		  @{{user.userName}}
+  	  		  @{{user.username}}
   	        </div>
   	        <div class="joined">
   	          Joined
   	        </div>
             <div class="user-timestamp">
-        	  {{user.timestamp}}
+        	  {{userAll.convertTime(user.timestamp)}}
             </div>
             <div class="tweets-icons">
               <span class="glyphicon glyphicon-heart like Icon"></span>

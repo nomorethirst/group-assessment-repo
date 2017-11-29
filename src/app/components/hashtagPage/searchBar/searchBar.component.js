@@ -2,7 +2,7 @@ import templateUrl from 'app/components/hashtagPage/searchBar/searchBar.template
 import 'app/app.styles'
 
 const controller = class SearchBarController {
-  constructor ($scope, hashtagService) {
+  constructor (hashtagService) {
     'ngInject'
     this.service = hashtagService
     this.foundTweets = []

@@ -1,0 +1,27 @@
+.profileContainer {
+  display: flex;
+  height: 89vh;
+  margin-top: 60px;
+  justify-content: center;
+}
+
+.userTweetsContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+  height: 90vh;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .tweets.userPage {
+	flex: 0 0 auto;
+	margin-right: 3px;
+  }
+}
+
+.tweets.userPage {
+  width:400px;
+  margin-left: 40px
+}
