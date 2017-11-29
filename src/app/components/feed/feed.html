@@ -1,4 +1,4 @@
-<h1 class="feed-head">Today's Drama</h1>
+<h1 class="feed-head">Welcome to today's drama, {{feed.user.username}}</h1>
 
 <textarea placeholder="Add more drama!" ng-model="feed.newTweetText"></textarea>
 <br />
@@ -11,7 +11,7 @@
   -->
   </div>
   <div id="tweets-in-feed">
-    <ft-tweet ng-repeat="x in feed.tweets track by $index" tweet="x"></ft-tweet>
+    <ft-tweet ng-repeat="x in tweets track by $index" tweet="x"></ft-tweet>
   </div>
   <div id="filler">
 
