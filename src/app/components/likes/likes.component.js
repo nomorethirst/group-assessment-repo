@@ -1,17 +1,10 @@
-/*angular.module('app').component('likesComponent', {
-    templateUrl: 'app/components/likes/likesTemplate.html',
-    bindings: {
-        tweet: '='
-    }
-})*/
-
-import 'app/app.styles'
+import 'app/components/likes/likes.styles'
 import templateUrl from 'app/components/likes/likes.template'
 
 const controller = class FtLikesController {
-  constructor($log, appService) {
+  constructor($log, tweetService) {
     'ngInject'
-    this.service = appService
+    this.tweetService = tweetService
     $log.debug('ft-likes is a go')
   }
 
@@ -23,7 +16,7 @@ export const ftLikes = {
     templateUrl,
     controllerAs: 'likes',
     binding: {
-      tweet : '='
+      likes : '='
     }
 
   }

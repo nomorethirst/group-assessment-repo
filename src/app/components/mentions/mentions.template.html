@@ -1,8 +1,8 @@
-<div class="card">
+<div class="ft-mentions">
         <div class="card-block">
-             <p>Mentions ({{userblurb.getLikes().length}}):</p>
+             <p>Mentioned in ({{mentions.mentions.length}}):</p>
                 <ul>
-                    <li ng-repeat="tweet in userblurb.getMentions()">
+                    <li ng-repeat="mentions in mentions.mentions">
                         <div>
                             <label>ID: </label><p>{{tweet.id}}</p>
                             <label>Time Posted: </label><p>{{tweet.posted}}</p>

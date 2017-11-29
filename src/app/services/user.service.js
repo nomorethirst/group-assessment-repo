@@ -121,6 +121,14 @@ export class UserService {
                 })
         }
 
+        follow(credentials = this.credentials, username) {
+            return this.http.post(`${this.baseUrl}/users/@${this.user.username}/follow`, credentials)
+        }
+
+        unfollow(credentials = this.credentials, username) {
+            return this.http.post(`${this.baseUrl}/users/@${this.user.username}/unfollow`, credentials)
+        }
+
         getFeed(username = this.user.username){
             return this.http.get(this.baseUrl + '/users/@' + username + '/feed')
         }

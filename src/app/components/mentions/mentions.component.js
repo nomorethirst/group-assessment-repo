@@ -1,10 +1,10 @@
-import 'app/app.styles'
+import 'app/components/mentions/mentions.styles'
 import templateUrl from 'app/components/mentions/mentions.template'
 
 const controller = class FtMentions {
-  constructor($log, appService) {
+  constructor($log, tweetService) {
     'ngInject'
-    this.service = appService
+    this.tweetService = tweetService
     $log.debug('ft-mentions is a go')
   }
 
@@ -16,6 +16,6 @@ export const ftMentions = {
     templateUrl,
     controllerAs: 'mentions',
     binding: {
-      tweet : '='
+      mentions : '='
     }
   }
