@@ -7,6 +7,9 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
     resolve: {
       allTweets: function (tweetService) {
         return tweetService.getAll()
+      },
+      allUsers: function (userService) {
+        return userService.getUsers()
       }
     }
   }
@@ -82,18 +85,6 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     }
   }
-
-  /*const likesState = {
-    name: 'likes',
-    url: '/tweets/{id}/likes',
-    component: 'ftLikes',
-    resolve: {
-      likes: function(tweetService, $transition$) {
-        return tweetService.getLikesById($transition$.params().id);
-      }
-    }
-  }*/
-
   const mentionsState = {
     name: 'mentions',
     url: '/users/@{username}/mentions',
