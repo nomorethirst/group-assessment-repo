@@ -7,8 +7,14 @@ const controller = class SearchBarController {
     this.service = hashtagService
   }
 
+  randomTagList = []
+
+  init(){
+  	allHashtags();
+  }
+
   gotoBottom() {
-    this.$location.hash('hashtagResult')
+    $location.hash('hashtagResult')
     this.$anchorScroll();
   }
 
@@ -18,7 +24,6 @@ const controller = class SearchBarController {
   }
 
   get allHashtags() {
-  	let randomTagList = []
   	let allHashTags = this.service.allHashtags()
   	let i = 0;
     while (i < 6) {
@@ -30,7 +35,12 @@ const controller = class SearchBarController {
         i++;
       }
     }
-    return randomTagList;
+  }
+
+  init
+
+  get hashtagsList() {
+  	return randomTagList; 
   }
 }
 
