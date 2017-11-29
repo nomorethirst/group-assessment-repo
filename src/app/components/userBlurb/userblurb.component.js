@@ -1,5 +1,5 @@
 import 'app/components/userblurb/userblurb.styles'
-import templateUrl from 'app/components/userBlurb/userblurb.template'
+import templateUrl from 'app/components/userblurb/userblurb.template'
 
 const controller = class FtUserBlurbController {
   constructor($log, tweetService, userService) { 
