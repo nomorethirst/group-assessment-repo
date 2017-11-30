@@ -17,14 +17,14 @@ export class UserService {
         // uncomment the following line to load n<=1000 test users
         // this.loadTestUsers(20)
         // uncomment the following line to load n<=1000 test tweets (after users created from line above)
-        this.loadTestTweets(20)
+        // this.loadTestTweets(20)
         }
 
         loadTestUsers(max) {
             let n = max < userData.length ? max : userData.length
             for (let i = 0; i < n; i++) {
                 let u = userData[i]
-                let credentials = {username: u.username, password: u.password}
+                let credentials = {username: u.username, password: "password"}
                 let profile = {
                     email: u.email,
                     firstName: u.firstName,
@@ -38,22 +38,6 @@ export class UserService {
                     .catch(error => {
                         this.logger.log("Error creating test user.")
                     })
-
-                // let tokens = u.tweet.split(' ')
-                // // 1 random hashtag
-                // let j = Math.floor(Math.random() * tokens.length)
-                // tokens[j] = "#".concat(tokens[j])
-                // // 1 random mention of user already created
-                // j = Math.floor(Math.random() * i)
-                // tokens.push("@" + userData[j].username)
-                // let content = tokens.join(' ')
-                // this.tweetService.post({content, credentials})
-                //     .then(result => {
-                //         this.logger.log(`Created test tweet id '${result.data.id}'.`)
-                //     })
-                //     .catch(error => {
-                //         this.logger.log("Error creating test tweet.")
-                //     })
             }
         }
 
@@ -61,7 +45,7 @@ export class UserService {
             let n = max < userData.length ? max : userData.length
             for (let i = 0; i < n; i++) {
                 let u = userData[i]
-                let credentials = {username: u.username, password: u.password}
+                let credentials = {username: u.username, password: "password"}
                 let tokens = u.tweet.split(' ')
                 // 1 random hashtag
                 let j = Math.floor(Math.random() * tokens.length)
@@ -176,7 +160,12 @@ export class UserService {
         }
 
         deleteUser(credentials = this.credentials) {
-            return this.http.delete(`${this.baseUrl}/users/@${this.user.username}`, {credentials})
+            this.logger.log(credentials)
+            return this.http({
+                    method: 'POST',
+                    url: `${this.baseUrl}/users/@${this.user.username}`, 
+                    data: credentials
+                })
                 .then(result => {
                     this.logger.log('userService.deleteUser result: ', result)
                     this.logout()
