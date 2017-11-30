@@ -17,7 +17,7 @@ export class UserService {
         // uncomment the following line to load n<=1000 test users
         //this.loadTestUsers(20)
         // uncomment the following line to load n<=1000 test tweets (after users created from line above)
-        // this.loadTestTweets(20)
+        //this.loadTestTweets(20)
         }
 
         loadTestUsers(max) {
