@@ -1,27 +1,77 @@
 .profileContainer {
-  display: flex;
-  height: 89vh;
-  margin-top: 60px;
-  justify-content: center;
+  height: 100vh;
+  width: 100vw;
 }
 
-.userTweetsContainer {
+.userPage-headerContainer {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  overflow-y: auto;
-  height: 90vh;
-  -webkit-overflow-scrolling: touch;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  .tweets.userPage {
-	flex: 0 0 auto;
-	margin-right: 3px;
-  }
 }
 
-.tweets.userPage {
-  width:400px;
-  margin-left: 40px
+.userPage-topWhitePadding {
+  flex: 1 0 50px;
+  z-index: 5;
+  background-color: #428bca;
+  box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.75);
+}
+
+.userPage-blueBackground {
+  background-color: #5bc0de;
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+}
+
+.userPage-leftPadding {
+  flex: .22 0 auto;
+}
+
+
+.userPage-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.userPage-profilePadding {
+  flex: 1 0 50px;
+}
+
+.userPage-userBlurb {
+  width: 250px;
+  height: 435px;
+  text-align: center;
+  box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.75);
+}
+.userPage-textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 30px;
+}
+
+.userPage-text, .userPage-text:after {
+  font-weight: 920;
+  color: #f9f9f9;
+  padding-top: 30px;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  letter-spacing: 2px;
+  margin-left: 4%;
+}
+
+.userPage-text {
+	align-self: center;
+    font-size: 4vw;
+    z-index: 100;
+}
+
+.userPage-text.username {
+  font-size: 2.5em;
+  color: #d9534f;
+}
+
+.userPage-bodyContainer {
+  display:flex;
+  justify-content: center;
 }
