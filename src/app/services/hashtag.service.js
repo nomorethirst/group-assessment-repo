@@ -8,7 +8,14 @@ export class HashtagService{
         this.http = $http
         this.log = $log
         $log.log('hello from HashtagService!')
-        this.getByLabel('hello')
+    }
+
+    saveOptionalQuery(query){
+        this.optionalQuery = query
+    }
+
+    getOptionalQuery(){
+        return this.optionalQuery
     }
 
     getAll(){

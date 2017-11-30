@@ -7,6 +7,10 @@ const controller = class SearchBarController {
     this.service = hashtagService
     this.foundTweets = []
     this.randomTweets = []
+    if(hashtagService.getOptionalQuery() !== undefined){
+      this.hashtag = hashtagService.getOptionalQuery()
+      this.findTweets
+    }
   }
   
   get findTweets() {
