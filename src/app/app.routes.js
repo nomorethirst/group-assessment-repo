@@ -15,7 +15,7 @@ export function routing($stateProvider, $urlRouterProvider, $locationProvider) {
   }
   const hashtagState = {
     name: 'hashtag',
-    url: '/hashtag',
+    url: '/hashtag?query',
     component: 'ftHashtag'
   }
   const loginState = {
