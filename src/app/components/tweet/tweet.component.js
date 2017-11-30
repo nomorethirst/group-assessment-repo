@@ -34,7 +34,7 @@ const controller =
       }
 
       this.openBox = (num) => {
-        console.log(num)
+        console.log(this.tweet.inReplyTo)
         switch (num) {
           case 1:
             this.tweetService.getLikesById(this.tweet.id).then((data) => this.boxService.saveBoxData(data.data, num))
@@ -59,8 +59,8 @@ const controller =
             })
             break;
         }
-        if (num == 5)
-          location.reload();
+        // if (num == 5)
+        //   this.route.reload();
       }
     }
   }

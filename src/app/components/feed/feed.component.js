@@ -25,8 +25,6 @@ const controller =
         location.reload();
       }
 
-
-
       this.$onInit = () => {
         this.userService.saveUserData({
           followers: this.userFollowers.data,
