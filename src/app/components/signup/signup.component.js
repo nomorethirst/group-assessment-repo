@@ -19,17 +19,34 @@ const controller =
         this.firstName = ""
         this.lastName = ""
         this.phone = ""
+        this.usernameAvailable = false
         this.logger.log('ft-signup is a go')
       }
     }
 
+    //can't get ng-change to trigger this for some reason...
+    checkUsernameAvailable() {
+      this.logger.log("checking if username available...")
+      this.validateService.getUsernameAvailable(this.username)
+        .then(result => {
+          if (result.data) {
+            this.usernameAvailable = true
+          } else {
+            this.usernameAvailable = false
+          }
+        })
+        .catch(error => {
+          window.alert("Error checking if username available.")
+        })
+    }
+
     signup() {
-      if (this.email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i) === null) {
-        window.alert(`Invalid email address: '${this.email}' - try again.`)
-        this.email = ""
-        document.getElementById("email").focus()
-        return
-      }
+      // if (this.email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i) === null) {
+      //   window.alert(`Invalid email address: '${this.email}' - try again.`)
+      //   this.email = ""
+      //   document.getElementById("email").focus()
+      //   return
+      // }
       this.validateService.getUsernameAvailable(this.username)
         .then(result => {
           if (result.data) {

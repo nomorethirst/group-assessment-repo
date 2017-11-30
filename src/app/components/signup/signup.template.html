@@ -1,28 +1,45 @@
-<div class="ft-signup">
+<div class="ft-signup col-centered">
   <h1 class="title">Create an Account</h1>
-  <div class="form-group">
-    <label for="usr">Choose a username:</label>
-    <input type="text" ng-model="signup.username" class="form-control" id="usr" autofocus>
-  </div>
-  <div class="form-group">
-    <label for="pwd">Choose a password:</label>
-    <input type="password" ng-model="signup.password" class="form-control" id="pwd">
-  </div> 
-  <div class="form-group">
-    <label for="email">Email address:</label>
-    <input type="text" ng-model="signup.email" class="form-control" id="email">
-  </div> 
-  <div class="form-group">
-    <label for="firstname">First name:</label>
-    <input type="text" ng-model="signup.firstName" class="form-control" id="firstname">
-  </div> 
-  <div class="form-group">
-    <label for="lastname">Last name:</label>
-    <input type="text" ng-model="signup.lastName" class="form-control" id="lastname">
-  </div> 
-  <div class="form-group">
-    <label for="phone">Phone:</label>
-    <input type="text" ng-model="signup.phone" class="form-control" id="phone">
-  </div> 
-  <button type="submit" class="btn btn-default" ng-click="signup.signup()">Create Account</button>
+  <form name="signupForm">
+    <div class="form-group">
+      <label for="usr">Choose a username (required):</label>
+      <input name="username" type="text" ng-model="signup.username" class="form-control" id="usr" autofocus required>
+      <span style="color:red" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
+        <span ng-show="signupForm.username.$error.required">Username is required.</span>
+        <!-- <span ng-show="signupForm.username.$error.text">Invalid username.</span> -->
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Choose a password (required):</label>
+      <input name="password" type="password" ng-model="signup.password" class="form-control" id="pwd" required>
+      <span style="color:red" ng-show="signupForm.password.$dirty && signupForm.password.$invalid">
+        <span ng-show="signupForm.password.$error.required">Password is required.</span>
+        <span ng-show="signupForm.password.$error.password">Invalid password.</span>
+      </span>
+    </div> 
+    <div class="form-group">
+      <label for="email">Email address (required):</label>
+      <input name="email" type="email" ng-model="signup.email" class="form-control" id="email" required>
+      <span style="color:red" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
+        <span ng-show="signupForm.email.$error.required">Email is required.</span>
+        <span ng-show="signupForm.email.$error.email">Invalid email address.</span>
+      </span>
+    </div> 
+    <div class="form-group">
+      <label for="firstname">First name:</label>
+      <input name="firstname" type="text" ng-model="signup.firstName" class="form-control" id="firstname">
+    </div> 
+    <div class="form-group">
+      <label for="lastname">Last name:</label>
+      <input name="lastname" type="text" ng-model="signup.lastName" class="form-control" id="lastname">
+    </div> 
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input name="phone" type="text" ng-model="signup.phone" class="form-control" id="phone">
+    </div> 
+    <button type="submit" class="btn btn-default" ng-click="signup.signup()"
+      ng-disabled="signupForm.username.$invalid || signupForm.password.$invalid || signupForm.email.$invalid">
+      Create Account
+    </button>
+  </form>
 </div>

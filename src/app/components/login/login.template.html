@@ -1,12 +1,25 @@
-<div class="ft-login">
+<div class="ft-login col-centered">
   <h1 class="title">Login</h1>
-  <div class="form-group">
-    <label for="usr">Username:</label>
-    <input type="text" ng-model="login.username" class="form-control" id="usr" autofocus>
-  </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" ng-model="login.password" class="form-control" id="pwd">
-  </div> 
-  <button type="submit" class="btn btn-default" ng-click="login.login()">Login</button>
+  <form name="loginForm">
+    <div class="form-group">
+      <label for="usr">Username:</label>
+      <input name="username" type="text" ng-model="login.username" class="form-control" id="usr" autofocus required>
+      <span style="color:red" ng-show="loginForm.username.$dirty && loginForm.username.$invalid">
+        <span ng-show="loginForm.username.$error.required">username is required.</span>
+        <!-- <span ng-show="loginForm.username.$error.text">Invalid username.</span> -->
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input name="password" type="password" ng-model="login.password" class="form-control" id="pwd" required>
+      <span style="color:red" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+        <span ng-show="loginForm.password.$error.required">Password is required.</span>
+        <!-- <span ng-show="loginForm.password.$error.password">Invalid password.</span> -->
+      </span>
+    </div> 
+    <button type="submit" class="btn btn-default" ng-click="login.login()"
+      ng-disabled="loginForm.username.$invalid || loginForm.password.$invalid">
+      Login
+    </button>
+  </form>
 </div> 
