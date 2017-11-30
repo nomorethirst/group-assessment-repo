@@ -1,3 +1,5 @@
+import userData from 'app/services/1000users.json'
+
 export class UserService {
     user = null
     credentials = null
@@ -11,6 +13,27 @@ export class UserService {
         this.userData = null
         this.restoreState()
         this.logger.log('userService is a go')
+        // uncomment the following line to load 1000 test users
+        // this.loadTestUsers()
+        }
+
+        loadTestUsers() {
+            for (let u of userData) {
+                let credentials = {username: u.username, password: u.password}
+                let profile = {
+                    email: u.email,
+                    firstName: u.firstName,
+                    lastName: u.lastName,
+                    phone: u.phone
+                }
+                this.createUser(credentials, profile)
+                    .then(result => {
+                        this.logger.log(`Created test user ${result.data.username}.`)
+                    })
+                    .catch(error => {
+                        this.logger.log("Error creating test user.")
+                    })
+            }
         }
 
         saveUserData(userData){

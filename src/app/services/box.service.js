@@ -21,15 +21,15 @@ export class BoxService{
         //         inReplyTo: null
         //      }
         // ]
-        this.data = [
-            {
-               username: 'wmarttala'
-            }, 
-            {
-               username: 'mboren'
-            }
-        ]
-        this.datatype = 1
+        // this.data = [
+        //     {
+        //        username: 'wmarttala'
+        //     }, 
+        //     {
+        //        username: 'mboren'
+        //     }
+        // ]
+        this.datatype = 2
     }
 
     saveBoxData(data, datatype){
