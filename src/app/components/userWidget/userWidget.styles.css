@@ -55,7 +55,7 @@
 
 .userWidget-timestamp {
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -63,4 +63,5 @@
 .userWidget-social {
   display: inline-block;
   margin: 0 auto;
+
 }

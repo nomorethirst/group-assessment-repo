@@ -28,8 +28,8 @@
     {{ftUserWidget.convertTime(ftUserWidget.user.timestamp)}}
   </div>
   <div class="userWidget-social">
-    <span><ft-followers follower=ftUserWidget.user></ft-followers></span>
-    <span><ft-following></ft-following></span>
+    <span><ft-followers followers=ftUserWidget.user.username></ft-followers></span>
+    <span><ft-following username=ftUserWidget.user.username></ft-following></span>
   </div>
   <div class="userWidget-icons">
     <input type="button" ng-disabled="ftUserWidget.loggedIn" ng-click="ftUserWidget.follow" class="btn btn-primary" value="{{ftUserWidget.followOption}}">  
