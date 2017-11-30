@@ -1,13 +1,14 @@
-<div class="tweets" style="padding: 32px;">
-  <div ng-style="{'border': '2px solid green'}" ng-if="tweet.tweet.inRepostOf != null">
-    <h3>Retweeted from @{{tweet.tweet.inRepostOf.author.username}}</h3>
+<div class="tweets" style="min-width: 512px; padding: 16px;">
+  <div class="tweet-head-thing" style="padding: 16px;">
+    <div ng-style="{'border': '2px solid green', 'padding': '16px'}" ng-if="tweet.tweet.inRepostOf != null">
+      <p><strong>Retweeted from @{{tweet.tweet.inRepostOf.author.username}}</strong></p>
+    </div>
+    <div ng-style="{'border': '2px solid red', 'padding': '16px'}" ng-if="tweet.tweet.inReplyTo != null">
+      <p><strong>Reply to @{{tweet.tweet.inReplyTo.author.username}}</strong></p>
+      <p ng-bind-html="tweet.replyContent"></p>
+    </div>
   </div>
-  <div ng-style="{'border': '2px solid red'}" ng-if="tweet.tweet.inReplyTo != null">
-    <h2>Reply to @{{tweet.tweet.inReplyTo.author.username}}</h2>
-    <p ng-bind-html="tweet.replyContent"></p>
-  </div>
-
-  <div class="tweets userPage">
+  <div>
     <div>
       <div class="tweets-profileContainer">
 
