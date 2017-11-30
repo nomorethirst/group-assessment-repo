@@ -23,6 +23,7 @@ const controller =
           y + " ")
         builder += "</p>"
         this.tweet.content = $sce.trustAsHtml(builder);
+        this.author = $sce.trustAsHtml("<a href='users/@" + this.tweet.author.username + "/profile'>@" + this.tweet.author.username + "</a>")
       }
 
       let commentBoxActive = this.commentBoxActive;
