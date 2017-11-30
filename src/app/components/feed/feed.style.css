@@ -6,6 +6,10 @@ ft-feed {
   overflow: visible;
 }
 
+.replyBox {
+  display: inline-block;
+}
+
 ft-tweet {
   max-width: 512px;
   background-color: lightblue;
