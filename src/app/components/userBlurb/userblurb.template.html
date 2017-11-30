@@ -1,13 +1,41 @@
-<div class="ft-userblurb">
-    <div class="card-block">
-        <h4 class="card-title"><a ui-sref= "userPage({username: userblurb.username})">@{{userblurb.username}}</a></h4>
-        <h6 class="card-subtitle mb-2 text-muted">Email: {{userblurb.email}}</h6>
-        <a ui-sref="followers({ 'username': userblurb.username })">Followers: {{userblurb.followers.length}} </a>
-    <br>
-        <a ui-sref="following({ 'username': userblurb.username })">Following: {{userblurb.following.length}} </a>
-    </br>
-        <!-- <a ui-sref="likes" ui-sref-active="active">Likes: {{userblurb.likes.length}}</a> -->
-    <br>
-        <a ui-sref="mentions({ 'username': userblurb.username })">Mentions: {{userblurb.mentions.length}}</a>
-    </br>
-</div> 
+<div class="userBlurb-profileBlueground">
+  <div class="userBlurb-profileContainer">
+    <a class="userBlurb-hover" ui-sref="userPage({username: userblurb.user.username})">
+      <div class="userBlurbProfilePicBorder">
+        <div class="userBlurbProfilePic">
+          <div class="glyphicon glyphicon-user"></div>
+        </div>
+      </div>
+      <div class="userBlurb-firstName">
+        {{userblurb.user.profile.firstName}}
+        <span class="userBlurb-lastName"></span>
+        {{userblurb.user.profile.lastName}}
+      </div>
+    </a>
+    <div class="userBlurb-userName">
+      @{{userblurb.username}}
+    </div>
+  </div>
+</div>
+
+<div class="userBlurb-profileWhiteBackground">
+  <div class="userBlurb-joined">
+    Joined
+  </div>
+  <div class="userBlurb-timestamp">
+    {{userblurb.convertTime(userblurb.user.joined)}}
+  </div>
+  <div class="userBlurb-social">
+    <div class="userBlurb-email">
+      Email: {{userblurb.email}}
+    </div>
+    <div class="userBlurb-link">
+      <span class="userBlurb-followers">
+        <a ui-sref="followers({ 'username': userblurb.username })">Followers: {{userblurb.followers.length}}</a></span>
+      <span class="userBlurb-following">
+        <a ui-sref="following({ 'username': userblurb.username })">Following: {{userblurb.following.length}}</a></span>
+      <span class="userBlurb-mentions">
+        <a ui-sref="mentions({ 'username': userblurb.username })">Mentions: {{userblurb.mentions.length}}</a></span>
+    </div>
+  </div>
+</div>

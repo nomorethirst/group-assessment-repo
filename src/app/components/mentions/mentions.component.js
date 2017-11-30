@@ -6,17 +6,13 @@ const controller = class FtMentions {
     'ngInject'
     this.userService = userService
     this.state = $state;
-		if (this.userService.isAuthenticated()) {
-			this.username = this.userService.user.username
-		} else {
-			this.username = this.state.params.username
-		}
+		this.username = this.state.params.username
     $log.debug('ft-mentions is a go')
     this.userMentionsList = []
   }
 
 
-  getMentions() {
+getMentions() {
   	return this.userService.getMentions(this.username).then(response => {
   	  this.userMentionsList = response.data
   	})

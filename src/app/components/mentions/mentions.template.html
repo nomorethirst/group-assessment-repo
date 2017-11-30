@@ -4,10 +4,10 @@
             <div ng-init="mentions.getMentions()">
              <p>Mentioned in: {{mentions.userMentionsList.length}}</p>
                 <ul>
-                 <li ng-repeat="mentions in mentions.userMentionsList"> 
+                 <li ng-repeat="m in mentions.userMentionsList"> 
                         <div>
-                            <label class="tweet-content">Tweet:</label><p>{{mentions.content}}</p>
-                            <label class="time">Time Posted: </label><p>{{mentions.posted}}</p>
+                            <label class="tweet-content">Tweet:</label><p>{{m.content}}</p>
+                            <label class="time">Time Posted: </label><p>{{mentions.convertTime(m.posted)}}</p>
                         </div>
                                     
                     </li>
