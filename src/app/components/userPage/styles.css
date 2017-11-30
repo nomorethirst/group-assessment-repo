@@ -55,8 +55,8 @@
   padding-top: 30px;
   white-space: nowrap;
   display: inline-block;
-  letter-spacing: 2px;
-  margin-left: 4%;
+  letter-spacing: 1px;
+  margin-left: 2%;
 }
 
 .userPage-text {
@@ -67,15 +67,18 @@
 
 .userPage-text.username {
   font-size: 2em;
+  max-width: 30%;
+  text-overflow: break-word;
   color: #d9534f;
+  padding-right: 4%;
 }
 
 .userPage-bodyContainer {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  flex: 1 0 auto;
 }
 
-.userBody-body-leftPadding {
-  flex: .3 0 auto;
+.userPage-body-leftPadding {
+  flex: .33 0 200px;
 }

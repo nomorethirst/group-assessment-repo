@@ -79,10 +79,12 @@
   color: grey;
   size: 6px;
 }
+
 .input-group-button {
   padding: 0;
   margin: 0;
 }
+
 #hashtagResult {
   display: flex;
   flex-direction: column;

@@ -1,45 +1,49 @@
-<div ng-style="{'border': '2px solid green'}" ng-if="tweet.tweet.inRepostOf != null">
-  <h3>Retweeted from @{{tweet.tweet.inRepostOf.author.username}}</h3>
-</div>
-<div ng-style="{'border': '2px solid red'}" ng-if="tweet.tweet.inReplyTo != null">
-  <h2>Reply to @{{tweet.tweet.inReplyTo.author.username}}</h2>
-  <p ng-bind-html="tweet.replyContent"></p>
-</div>
+<div class="tweets" style="min-width: 512px; padding: 16px;">
+  <div class="tweet-head-thing" style="padding: 16px;">
+    <div ng-style="{'border': '2px solid green', 'padding': '16px'}" ng-if="tweet.tweet.inRepostOf != null">
+      <p><strong>Retweeted from @{{tweet.tweet.inRepostOf.author.username}}</strong></p>
+    </div>
+    <div ng-style="{'border': '2px solid red', 'padding': '16px'}" ng-if="tweet.tweet.inReplyTo != null">
+      <p><strong>Reply to @{{tweet.tweet.inReplyTo.author.username}}</strong></p>
+      <p ng-bind-html="tweet.replyContent"></p>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="tweets-profileContainer">
 
-<div class="tweets userPage">
-  <div ng-style="tweet.tweet.inReplyTo != null && tweet.tweet.inRepostOf == null ?  {'padding-left': '32px'} : {}">
-    <div class="tweets-profileContainer">
-
-      <span class="tweets-firstName">{{tweet.tweet.author.profile.firstName}}
+        <span class="tweets-firstName">{{tweet.tweet.author.profile.firstName}}
           <span class="tweets-lastName">{{tweet.tweet.author.profile.lastName}}</span>
-      </span>
-      <div class="tweets-Username">
-        @{{tweet.tweet.author.username}}
+        </span>
+        <div class="tweets-Username">
+          @{{tweet.tweet.author.username}}
+        </div>
       </div>
-    </div>
 
-    <div ng-bind-html="tweet.tweet.content" class="tweets-content welcome">
-    </div>
-    <div class="tweets-timestamp">
-      {{tweet.convertTime(tweet.tweet.posted)}}
-    </div>
-    <div class="tweets-icons">
-      <span class="glyphicon glyphicon-share-alt reply Icon"></span>
-      <span class="glyphicon glyphicon-retweet retweet Icon"></span>
-      <span ng-click="likeTweet()" class="glyphicon glyphicon-heart like Icon"></span>
-    </div>
-    <div class="tweet-buttons">
-      <div ng-click="tweet.openBox(1)" class="btn btn-sm btn-danger ">{{$scope.likes.length}} likes</div>
-      <div ng-click="tweet.openBox(2)" class="btn btn-sm btn-danger">{{$scope.replies.length}} replies</div>
-      <div ng-click="tweet.openBox(3)" class="btn btn-sm btn-danger">{{$scope.retweets.length}} retweets</div>
-      <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(4)" class="btn btn-sm btn-danger  glyphicon-envelope"> Reply</div>
-      <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(5)" class="btn btn-sm btn-danger  glyphicon-duplicate"> Retweet</div>
-    </div>
-    <div class="replyBox" id="newTweetText" ng-style='tweet.commentBoxActive ? {opacity: 1} : {opacity: 0}'>
-      <textarea ng-model="tweet.replyBody" maxlength="140"></textarea>
-      <div ng-click="tweet.openBox(6)" class="btn btn-sm btn-danger">
-        Send reply
+      <div ng-bind-html="tweet.tweet.content" class="tweets-content welcome">
+      </div>
+      <div class="tweets-timestamp">
+        {{tweet.convertTime(tweet.tweet.posted)}}
+      </div>
+      <div class="tweets-icons">
+        <span class="glyphicon glyphicon-share-alt reply Icon"></span>
+        <span class="glyphicon glyphicon-retweet retweet Icon"></span>
+        <span ng-click="likeTweet()" class="glyphicon glyphicon-heart like Icon"></span>
+      </div>
+      <div class="tweet-buttons">
+        <div ng-click="tweet.openBox(1)" class="btn btn-sm btn-danger ">{{$scope.likes.length}} likes</div>
+        <div ng-click="tweet.openBox(2)" class="btn btn-sm btn-danger">{{$scope.replies.length}} replies</div>
+        <div ng-click="tweet.openBox(3)" class="btn btn-sm btn-danger">{{$scope.retweets.length}} retweets</div>
+        <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(4)" class="btn btn-sm btn-danger  glyphicon-envelope"> Reply</div>
+        <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(5)" class="btn btn-sm btn-danger  glyphicon-duplicate"> Retweet</div>
+      </div>
+      <div class="replyBox" id="newTweetText" ng-style='tweet.commentBoxActive ? {"display": "inline-block", "padding-top": "16px"} : {"display": "none"}'>
+        <textarea ng-model="tweet.replyBody" maxlength="140"></textarea>
+        <div ng-click="tweet.openBox(6)" class="btn btn-sm btn-danger">
+          Send reply
+        </div>
       </div>
     </div>
   </div>
+
 </div>
