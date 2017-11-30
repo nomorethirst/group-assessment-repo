@@ -1,9 +1,9 @@
 <div class="ft-mentions">
         <div class="card-block">
 
-            <div ng-init="mentions.getMentions()">
+           <div ng-init="mentions.getMentions()">
              <p>Mentioned in: {{mentions.userMentionsList.length}}</p>
-                <ul>
+               <!-- <ul>
                  <li ng-repeat="m in mentions.userMentionsList"> 
                         <div>
                             <label class="tweet-content">Tweet:</label><p>{{m.content}}</p>
@@ -11,8 +11,31 @@
                         </div>
                                     
                     </li>
-                </ul>
-                </div>
-         </div>
-    </div>
+                </ul>-->
+                
+                <div ng-animate="'animate'" ng-repeat="m in mentions.userMentionsList">
+                        <div class="tweets">
+                
+                            <div class="tweets-profileContainer">
+                          <img src="" style="width:100px">
+                              <div class="tweets-Username">
+                                  @{{m.author.username}}
+                            </div>
+
+                            <div class="tweets-content">
+                                    {{m.content}}
+                                </div>
+                              <div class="tweets-timestamp">
+                                    {{mentions.convertTime(m.posted)}}
+                              </div>
+                              <div class="tweets-icons">
+                                <span class="glyphicon glyphicon-share-alt reply Icon"></span>
+                                <span class="glyphicon glyphicon-retweet retweet Icon"></span>
+                                <span class="glyphicon glyphicon-heart like Icon">
+                                </span>
+                              </div>
+               </div>
+        </div>
+  </div>
+    
     
