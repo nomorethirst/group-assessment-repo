@@ -22,7 +22,7 @@
   <div class="userBlurb-social">
     <div class="userBlurb-link">
       <span class="userBlurb-followers">
-        <a ui-sref="followers({ 'username': userblurb.user.username })">Followers: {{userblurb.followers.length}}</a></span>
+        <a ui-sref="followers({ 'username': userblurb.user.username })">Followers: {{userblurb.numFollowers}}</a></span>
       <span class="userBlurb-following">
         <a ui-sref="following({ 'username': userblurb.user.username })">Following: {{userblurb.following.length}}</a></span>
       <span class="userBlurb-mentions">
@@ -30,10 +30,10 @@
     </div>
   </div>
   <div class="userblurb-icons">
-    <input type="button" ng-disabled="userblurb.loggedIn" ng-click="userblurb.follow" ng-show="!userblurb.isFollowing()" class="btn btn-primary btn-lg" value="Follow"> 
-  </div>
-  <div class="userblurb-icons">
-    <input type="button" ng-disabled="userblurb.loggedIn" ng-click="userblurb.unfollow" ng-show="userblurb.isFollowing()" class="btn btn-primary btn-lg" value="Unfollow"> 
+     <div ng-switch="userblurb.followSwitch">
+        <input ng-switch-when = "false" type="button" ng-disabled="userblurb.loggedIn" ng-click="userblurb.follow()" class="btn btn-primary btn-lg" value="Follow"> 
+        <input ng-switch-when = "true" type="button" ng-disabled="userblurb.loggedIn" ng-click="userblurb.unfollow()" class="btn btn-primary btn-lg" value="Unfollow">
+    </div>
   </div>
   <div class="userBlurb-joined">
     Joined
