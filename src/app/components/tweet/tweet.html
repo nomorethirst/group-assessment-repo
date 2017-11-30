@@ -1,12 +1,12 @@
 <div class="tweets" style="min-width: 512px;">
   <div class="tweet-head-thing" style="padding: 16px;">
     <div ng-if="tweet.tweet.inRepostOf != null">
-      <p><strong>Retweeted from @{{tweet.tweet.inRepostOf.author.username}}</strong></p>
+      <p><i>Retweeted from @{{tweet.tweet.inRepostOf.author.username}}</i></p>
     </div>
     <div ng-if="tweet.tweet.inReplyTo != null">
       <p><i>Reply to @{{tweet.tweet.inReplyTo.author.username}}</i></p </div>
     </div>
-    <div style="margin: 0px;" ng-style="tweet.tweet.inReplyTo != null ?  {'border': '2px solid red', 'padding-left': '16px'} : {}">
+    <div style="margin: 0px;">
       <div>
         <div class="tweets-profileContainer">
 
