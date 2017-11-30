@@ -8,6 +8,10 @@ const controller = class FtUserBlurbController {
     this.log = $log
     this.userService = userService
     this.location = $location
+
+    this.followSwitch = false
+    this.numFollowers = 0
+    
     this.$onInit = () => {
       this.loggedIn = !(this.userService.isAuthenticated())
       this.username = this.user.username
@@ -17,6 +21,7 @@ const controller = class FtUserBlurbController {
       })
       this.userService.getFollowers(this.username).then(result => {
         this.followers = result.data
+        this.setFollow()
       })
       this.userService.getFollowing(this.username).then(result => {
         this.following = result.data
@@ -24,11 +29,15 @@ const controller = class FtUserBlurbController {
       this.userService.getMentions(this.username).then(result => {
         this.mentions = result.data
       })
-      if (this.userService.isAuthenticated()) {
-        for (follow in this.followers) {
-          if (this.userSerivce.user.username === followers) {
-            this.isFollowing = true;
-          }
+    }
+  }
+
+  setFollow(){
+    this.numFollowers = this.followers.length
+    if (this.userService.isAuthenticated()) {
+      for (let i = 0; i < this.followers.length; i++) {
+        if (this.userService.getCurrentUser().username === this.followers[i].username) {
+          this.followSwitch = true;
         }
       }
     }
@@ -43,13 +52,15 @@ const controller = class FtUserBlurbController {
   }
 
   follow() {
-    this.userService.follow(this.user.username)
-    this.location.reload()
+    this.followSwitch = !this.followSwitch
+    this.numFollowers++
+    this.userService.follow(this.username)
   }
 
   unfollow() {
-    this.userService.unfollow(this.user.username)
-    this.location.reload()
+    this.followSwitch = !this.followSwitch
+    this.numFollowers--
+    this.userService.unfollow(this.username)
   }
 
 }
