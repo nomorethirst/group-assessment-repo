@@ -59,7 +59,7 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  height: 30vh;
+  height: auto;
   width: 100%;
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
@@ -95,7 +95,10 @@
   margin-top: 15px;
   overflow-wrap: break-word;
   text-align: center;
-  box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.75);
+}
+
+.scroll-wrapper {
+  height: auto;
 }
 
 .tweets-content.welcome {
