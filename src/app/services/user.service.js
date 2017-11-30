@@ -15,7 +15,9 @@ export class UserService {
         this.restoreState()
         this.logger.log('userService is a go')
         // uncomment the following line to load n<=1000 test users
-        // this.loadTestUsers(100)
+        // this.loadTestUsers(20)
+        // uncomment the following line to load n<=1000 test tweets (after users created from line above)
+        // this.loadTestTweets(20)
         }
 
         loadTestUsers(max) {
@@ -37,6 +39,29 @@ export class UserService {
                         this.logger.log("Error creating test user.")
                     })
 
+                // let tokens = u.tweet.split(' ')
+                // // 1 random hashtag
+                // let j = Math.floor(Math.random() * tokens.length)
+                // tokens[j] = "#".concat(tokens[j])
+                // // 1 random mention of user already created
+                // j = Math.floor(Math.random() * i)
+                // tokens.push("@" + userData[j].username)
+                // let content = tokens.join(' ')
+                // this.tweetService.post({content, credentials})
+                //     .then(result => {
+                //         this.logger.log(`Created test tweet id '${result.data.id}'.`)
+                //     })
+                //     .catch(error => {
+                //         this.logger.log("Error creating test tweet.")
+                //     })
+            }
+        }
+
+        loadTestTweets(max) {
+            let n = max < userData.length ? max : userData.length
+            for (let i = 0; i < n; i++) {
+                let u = userData[i]
+                let credentials = {username: u.username, password: u.password}
                 let tokens = u.tweet.split(' ')
                 // 1 random hashtag
                 let j = Math.floor(Math.random() * tokens.length)
