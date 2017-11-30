@@ -3,17 +3,14 @@
 
            <div ng-init="mentions.getMentions()">
              <p>Mentioned in: {{mentions.userMentionsList.length}}</p>
-               <!-- <ul>
-                 <li ng-repeat="m in mentions.userMentionsList"> 
-                        <div>
-                            <label class="tweet-content">Tweet:</label><p>{{m.content}}</p>
-                            <label class="time">Time Posted: </label><p>{{mentions.convertTime(m.posted)}}</p>
-                        </div>
+               <ul>
+                 <div ng-repeat="m in mentions.userMentionsList"> 
+                    <ft-tweet tweet=m></ft-tweet>
                                     
-                    </li>
-                </ul>-->
+                      </div>
+                </ul>
                 
-                <div ng-animate="'animate'" ng-repeat="m in mentions.userMentionsList">
+             <!-- <div ng-animate="'animate'" ng-repeat="m in mentions.userMentionsList">
                         <div class="tweets">
                 
                             <div class="tweets-profileContainer">
@@ -36,6 +33,6 @@
                               </div>
                </div>
         </div>
-  </div>
+  </div> -->
     
     
