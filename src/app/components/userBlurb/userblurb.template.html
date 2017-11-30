@@ -38,4 +38,7 @@
         <a ui-sref="mentions({ 'username': userblurb.username })">Mentions: {{userblurb.mentions.length}}</a></span>
     </div>
   </div>
+  <div class="userblurb-icons">
+    <input type="button" ng-disabled="userblurb.loggedIn()" ng-click="userblurb.follow()" class="btn btn-primary" value="{{userblurb.followOption}}">  
+  </div>
 </div>

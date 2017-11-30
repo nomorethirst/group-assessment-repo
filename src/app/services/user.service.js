@@ -4,21 +4,24 @@ export class UserService {
     user = null
     credentials = null
 
-    constructor ($log, $http, validateService) {
+    constructor ($log, $http, validateService, tweetService) {
         'ngInject'
         this.logger = $log
         this.http = $http
         this.validateService = validateService
+        this.tweetService = tweetService
         this.baseUrl = 'http://localhost:8080'
         this.userData = null
         this.restoreState()
         this.logger.log('userService is a go')
-        // uncomment the following line to load 1000 test users
-        // this.loadTestUsers()
+        // uncomment the following line to load n<=1000 test users
+        // this.loadTestUsers(100)
         }
 
-        loadTestUsers() {
-            for (let u of userData) {
+        loadTestUsers(max) {
+            let n = max < userData.length ? max : userData.length
+            for (let i = 0; i < n; i++) {
+                let u = userData[i]
                 let credentials = {username: u.username, password: u.password}
                 let profile = {
                     email: u.email,
@@ -32,6 +35,22 @@ export class UserService {
                     })
                     .catch(error => {
                         this.logger.log("Error creating test user.")
+                    })
+
+                let tokens = u.tweet.split(' ')
+                // 1 random hashtag
+                let j = Math.floor(Math.random() * tokens.length)
+                tokens[j] = "#".concat(tokens[j])
+                // 1 random mention of user already created
+                j = Math.floor(Math.random() * i)
+                tokens.push("@" + userData[j].username)
+                let content = tokens.join(' ')
+                this.tweetService.post({content, credentials})
+                    .then(result => {
+                        this.logger.log(`Created test tweet id '${result.data.id}'.`)
+                    })
+                    .catch(error => {
+                        this.logger.log("Error creating test tweet.")
                     })
             }
         }
