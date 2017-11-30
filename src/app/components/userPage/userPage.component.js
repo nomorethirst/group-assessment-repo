@@ -29,7 +29,6 @@ const controller = class UserPageController {
   getTweets() {
   	return this.service.getTweets(this.username).then(response => {
   	  this.userTweetList = response.data
-  	  this.logger.log(this.userTweetList)
   	  return response.data
   	})
   }

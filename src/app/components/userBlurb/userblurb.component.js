@@ -22,10 +22,11 @@ const controller = class FtUserBlurbController {
       this.userService.getMentions(this.username).then(result => {
         this.mentions = result.data
       })
-
-      for (follow in this.followers) {
-        if (this.userSerivce.user.username === followers) {
-          this.isFollowing = true;
+      if (this.userService.isAuthenticated()) {
+        for (follow in this.followers) {
+          if (this.userSerivce.user.username === followers) {
+            this.isFollowing = true;
+          }
         }
       }
     }
