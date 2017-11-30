@@ -23,13 +23,13 @@ const controller =
     }
 
     updateProfile() {
-      if (this.email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i) === null) {
-        window.alert(`Invalid email address: '${this.email}' - try again.`)
-        this.email = ""
-        document.getElementById("email").focus()
-        return
-      }
-      let result = this.userService.patchUser({
+      // if (this.email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i) === null) {
+      //   window.alert(`Invalid email address: '${this.email}' - try again.`)
+      //   this.email = ""
+      //   document.getElementById("email").focus()
+      //   return
+      // }
+      this.userService.patchUser({
           username: this.username,
           password: this.password
         }, {
@@ -38,12 +38,26 @@ const controller =
           lastName: this.lastName,
           phone: this.phone
         })
-      if (result) {
-        window.alert("Profile updated successfully.")
-      } else {
-        window.alert("Something went wrong - unable to update profile.")
-      }
+        .then(result => {
+          this.logger.log(result)
+          window.alert("Profile updated successfully.")
+        })
+        .catch(error => {
+          this.logger.log(error)
+          window.alert("Something went wrong - unable to update profile.")
+        })
     }
+
+    deleteAccount() {
+      this.userService.deleteUser()
+        .then(result => {
+          window.alert("Account deleted successfully.")
+        })
+        .catch(error => {
+          window.alert("Something went wrong - unable to delete account.")
+        })
+    }
+
   }
 
 export const ftProfile = {
