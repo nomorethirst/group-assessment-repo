@@ -29,7 +29,7 @@ const controller = class FtUserBlurbController {
       this.userService.getMentions(this.username).then(result => {
         this.mentions = result.data
       })
-      this.isCurrentUser = !(this.userService.user.username === this.user.username)
+      this.isCurrentUser = !(this.userService.user.username === this.username)
     }
   }
 

@@ -29,7 +29,7 @@
         <a ui-sref="mentions({ 'username': userblurb.user.username })">Mentions: {{userblurb.mentions.length}}</a></span>
     </div>
   </div>
-  <div class="userblurb-icons">
+  <div class="userblurb-icons" ng-show="userblurb.isCurrentUser">
      <div ng-switch="userblurb.followSwitch">
         <input ng-switch-when = "false" type="button" ng-disabled="userblurb.loggedIn" ng-click="userblurb.follow()" class="btn btn-primary btn-lg" value="Follow"> 
         <input ng-switch-when = "true" type="button" ng-disabled="userblurb.loggedIn" ng-click="userblurb.unfollow()" class="btn btn-primary btn-lg" value="Unfollow">
