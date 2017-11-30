@@ -1,14 +1,19 @@
-<ft-tweet ng-if="tweet.tweet.inRepostOf != null" tweet="tweet.tweet.inRepostOf"></ft-tweet>
-<ft-tweet ng-if="tweet.tweet.inReplyTo != null" tweet="tweet.tweet.inReplyTo"></ft-tweet>
-<div ng-style="tweet.tweet.inReplyTo == null ? {} : {'padding-left' : '48px', 'border': '2px solid green'}">
+<div ng-style="{'border': '2px solid green'}" ng-if="tweet.tweet.inRepostOf != null">
+  <h3>Retweeted from @{{tweet.tweet.inRepostOf.author.username}}</h3>
+</div>
+<div ng-if="tweet.tweet.inReplyTo != null">
+  <h2>Reply to @{{tweet.tweet.inReplyTo.author.username}}</h2>
+  <p ng-bind-html="tweet.replyContent"></p>
+</div>
+<div ng-style="tweet.tweet.inReplyTo != null && tweet.tweet.inRepostOf == null ?  {'padding-left': '32px'} : {}">
   <h2 class="tweet-author">@{{tweet.tweet.author.username}}</h2>
   <p ng-click="tweet.likeTweet()" class="tweet-content" ng-bind-html="tweet.tweet.content"></p>
   <div class="tweet-buttons">
     <div ng-click="tweet.openBox(1)" class="btn btn-sm btn-danger ">{{$scope.likes.length}} likes</div>
     <div ng-click="tweet.openBox(2)" class="btn btn-sm btn-danger">{{$scope.replies.length}} replies</div>
     <div ng-click="tweet.openBox(3)" class="btn btn-sm btn-danger">{{$scope.retweets.length}} retweets</div>
-    <div ng-click="tweet.openBox(4)" class="btn btn-sm btn-danger  glyphicon-envelope"> Reply</div>
-    <div ng-click="tweet.openBox(5)" class="btn btn-sm btn-danger  glyphicon-duplicate"> Retweet</div>
+    <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(4)" class="btn btn-sm btn-danger  glyphicon-envelope"> Reply</div>
+    <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(5)" class="btn btn-sm btn-danger  glyphicon-duplicate"> Retweet</div>
   </div>
   <div class="replyBox" id="newTweetText" ng-style='tweet.commentBoxActive ? {opacity: 1} : {opacity: 0}'>
     <textarea ng-model="tweet.replyBody" maxlength="140"></textarea>
@@ -16,5 +21,4 @@
       Send reply
     </div>
   </div>
-
 </div>
