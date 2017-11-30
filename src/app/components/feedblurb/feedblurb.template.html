@@ -1,6 +1,6 @@
 <div class="ft-userblurb">
         <div class="card-block">
-            <h4 class="card-title">@{{feedblurb.username}}</h4>
+            <h4 class="card-title"><a ui-sref= "userPage({username: feedblurb.username})"> @{{feedblurb.username}}</a></h4>
             <h6 class="card-subtitle mb-2 text-muted">Email: {{feedblurb.email}}</h6>
             <a ui-sref="followers({ 'username': feedblurb.username })">Followers: {{feedblurb.followers.length}} </a>
         <br>

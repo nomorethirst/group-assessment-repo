@@ -52,11 +52,17 @@ export class UserService {
             // validate credentials, get user, set user and credentials
             return this.validateService.getCredentialsCheck(credentials)
                 .then(result => {
+                    this.logger.log(result)
+                    if (!result.data) {
+                        this.logger.log(`userService.login(): invalid credentials: `, credentials)
+                        return Promise.reject()
+                    }
                     return this.getUser(credentials.username)
                         .then(result => {
                             this.user = result.data
                             this.credentials = credentials
                             this.saveState()
+                            this.logger.log(`User '${this.user.username}' logged in.`)
                             return Promise.resolve(result)
                         })
                         .catch(error => {

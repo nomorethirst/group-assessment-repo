@@ -1,9 +1,10 @@
-
-   <div class="ft-following">
-      <div class="card-block">
-          <p>Following {{following.following.data.length}}:</p>
-        <button type="button" class="btn btn-info" ng-repeat="following in following.following"
-        ui-sref="userPage url" ui-sref-active="active">{{following.username}}
-        </button>
-      </div>
-      </div>
+      <div class="ft-following">
+          <div class="card-block">
+             <div ng-init="following.getFollowing()">
+              <p>Following: {{following.followingList.length}} </p>
+            <button type="button" class="btn btn-info" ng-repeat="following in following.followingList"
+            ui-sref="userPage({username: following.username})">{{following.username}}
+            </button>
+           </div>
+          </div>
+          </div>

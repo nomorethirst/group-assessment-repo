@@ -49,6 +49,7 @@ const controller =
 
 
 
+
 export const ftFeed = {
   controller,
   templateUrl,

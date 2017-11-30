@@ -3,9 +3,9 @@
       <div class="navbar-header">
         <a ui-sref="welcome" class="navbar-brand" >Ft Twitter</a>
       </div>
-      <!-- <ul class="nav navbar-nav">
-        <li><a ui-sref="about" ui-sref-active="active">About</a></li>
-      </ul> -->
+      <ul class="nav navbar-nav">
+        <li><a ui-sref="feed" ng-show="navbar.userService.isAuthenticated()">Feed</a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <a ng-click='navbar.showProfileOrSignup()'>

@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .headerText {
@@ -22,7 +23,20 @@
 
 .randomTagContainer {
   display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   justify-content: center;
+  height: 30vh;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .randomHashtags {
+    flex: 0 0 auto;
+    margin-right: 3px;
+  }
 }
 
 .randomHashtags {
@@ -37,7 +51,7 @@
 }
 
 .spacing {
-  flex: .7 0 auto;
+  flex: .3 0 auto;
 }
 
 .tweets {
@@ -69,7 +83,10 @@
   color: grey;
   size: 6px;
 }
-
+.input-group-button {
+  padding: 0;
+  margin: 0;
+}
 #hashtagResult {
   display: flex;
   flex-direction: column;
