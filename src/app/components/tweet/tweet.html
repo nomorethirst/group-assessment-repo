@@ -8,3 +8,9 @@
   <div ng-click="tweet.openBox(4)" class="btn btn-sm btn-danger  glyphicon-envelope"> Reply</div>
   <div ng-click="tweet.openBox(5)" class="btn btn-sm btn-danger  glyphicon-duplicate"> Retweet</div>
 </div>
+<div class="replyBox" id="newTweetText" ng-style='tweet.commentBoxActive ? {opacity: 1} : {opacity: 0}'>
+  <textarea ng-model="tweet.replyBody" maxlength="140"></textarea>
+  <div ng-click="tweet.openBox(6)" class="btn btn-sm btn-danger">
+    Send reply
+  </div>
+</div>
