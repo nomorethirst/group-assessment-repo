@@ -4,12 +4,14 @@ import templateUrl from 'app/components/userBlurb/userblurb.template'
 const controller = class FtUserBlurbController {
   constructor($log, userService, $route) { 
     'ngInject'
+
     this.log = $log
     this.userService = userService
     this.route = $route
     this.$onInit = () => {
       this.username = this.user.username
       this.userService.getUser(this.username).then(result => {
+        this.user = result.data
         this.email = result.data.profile.email
       })
       this.userService.getFollowers(this.username).then(result => {
@@ -21,6 +23,7 @@ const controller = class FtUserBlurbController {
       this.userService.getMentions(this.username).then(result => {
         this.mentions = result.data
       })
+
       for (follow in this.followers) {
         if (this.userSerivce.user.username === followers) {
           this.isFollowing = true;
@@ -57,7 +60,7 @@ export const ftUserBlurb = {
   controller,
   templateUrl,
   controllerAs: 'userblurb',
-  bindings:{
+  binding:{
     user: '='
   }
 }

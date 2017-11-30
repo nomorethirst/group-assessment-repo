@@ -14,9 +14,6 @@ const controller = class UserPageController {
 		this.username = this.state.params.username
 		this.logger.log(this.username)
 	}
-
-		this.state = $state;
-		this.username = this.state.params.username
   	this.userTweetList = []
   	
   }
