@@ -59,8 +59,8 @@ const controller =
             })
             break;
         }
-        if (num == 5)
-          location.reload();
+        // if (num == 5)
+        //   this.route.reload();
       }
     }
   }

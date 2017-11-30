@@ -2,12 +2,11 @@ import 'app/components/userBlurb/userblurb.styles'
 import templateUrl from 'app/components/userBlurb/userblurb.template'
 
 const controller = class FtUserBlurbController {
-  constructor($log, userService, $route) { 
+  constructor($log, userService) { 
     'ngInject'
 
     this.log = $log
     this.userService = userService
-    this.route = $route
     this.$onInit = () => {
       this.username = this.user.username
       this.userService.getUser(this.username).then(result => {
