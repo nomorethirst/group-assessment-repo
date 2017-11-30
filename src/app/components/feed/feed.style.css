@@ -11,6 +11,7 @@ ft-feed {
 }
 
 ft-tweet {
+  font-family: 'Indie Flower', cursive;
   max-width: 512px;
   background-color: lightblue;
   padding: 32px;

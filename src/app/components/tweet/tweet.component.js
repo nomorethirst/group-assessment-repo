@@ -12,6 +12,8 @@ const controller =
       this.boxService = boxService
       this.commentBox = "opacity: 0;"
       this.$onInit = () => {
+        if (this.tweet.inReplyTo != null)
+          this.replyContent = $sce.trustAsHtml(this.tweet.inReplyTo.content)
         this.tweetService.getLikesById(this.tweet.id).then((result) => $scope.likes = result.data);
         this.tweetService.getRepostById(this.tweet.id).then((result) => $scope.retweets = result.data)
         this.tweetService.getRepliesById(this.tweet.id).then((result) => $scope.after = result.data)
@@ -34,7 +36,7 @@ const controller =
       }
 
       this.openBox = (num) => {
-        console.log(this.tweet.inReplyTo)
+        console.log(this.tweet.inRepostOf)
         switch (num) {
           case 1:
             this.tweetService.getLikesById(this.tweet.id).then((data) => this.boxService.saveBoxData(data.data, num))
