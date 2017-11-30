@@ -22,20 +22,7 @@ const controller = class FtUserBlurbController {
       })
 
       this.followOption = "Follow"
-
-      if (this.userService.isAuthenticated()) {
-        if (this.following) {
-          this.logger.log(this.following)
-          for (followed in this.following) {
-            if (followed.username === this.user.username) {
-              this.followOption = "Unfollow"
-              return
-            }
-          }
-        }
-      }
     }
-    $log.debug('ft-userblurb is a go')
   }
 
   convertTime(timeInMillis) {
@@ -48,6 +35,18 @@ const controller = class FtUserBlurbController {
 
   loggedIn() {
     return !(this.userService.isAuthenticated())
+  }
+
+  followLogic() {
+    if (this.following) {
+      for (followed in this.following) {
+        if (followed.username === this.user.username) {
+          this.followOption = "Unfollow"
+        } else {
+          this.followOption = "Follow"
+        }
+      }
+    }
   }
 
   follow() {
