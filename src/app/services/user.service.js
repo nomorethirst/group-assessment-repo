@@ -177,11 +177,11 @@ export class UserService {
         }
 
         follow(username, credentials = this.credentials) {
-            return this.http.post(`${this.baseUrl}/users/@${this.user.username}/follow`, credentials)
+            return this.http.post(`${this.baseUrl}/users/@${username}/follow`, credentials)
         }
 
         unfollow(username, credentials = this.credentials) {
-            return this.http.post(`${this.baseUrl}/users/@${this.user.username}/unfollow`, credentials)
+            return this.http.post(`${this.baseUrl}/users/@${username}/unfollow`, credentials)
         }
 
         getFeed(username = this.user.username){
