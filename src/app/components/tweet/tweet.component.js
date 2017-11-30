@@ -14,8 +14,10 @@ const controller =
         this.tweetService.getRepostById(this.tweet.id).then((result) => $scope.retweets = result.data)
         this.tweetService.getRepliesById(this.tweet.id).then((result) => $scope.after = result.data)
         let builder = "<p>"
-        this.tweet.content.split(" ").forEach(y => builder += y.startsWith("#") ? y.replace("#", "<a href='hashtag/") + "'>" + y + "</a> " : y.startsWith("@") ? y.replace("@", '<a ui-sref="userPage({username: @' + y + '})">' +
-          y + ' </a>') : y + " ")
+        this.tweet.content.split(" ").forEach(y => builder +=
+          y.startsWith("#") ? y.replace("#", "<a href='hashtag?query=") + "'>" + y + "</a> " : 
+          y.startsWith("@") ?  "<a href='users/" + y + "/profile" + "'>" + y + ' </a>' : 
+          y + " ")
         builder += "</p>"
         this.tweet.content = $sce.trustAsHtml(builder);
       }
