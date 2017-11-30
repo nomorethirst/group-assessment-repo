@@ -8,11 +8,12 @@ const controller = class UserPageController {
 
 	this.state = $state;
 	this.logger = $log
-	this.username = this.state.params.username
-	this.logger.log(this.username)
+	this.userFix = { username: this.username }
+	//this.username = this.state.params.username
+	//this.logger.log(this.username)
 	this.userTweetList = []
   	
-  }
+	}
   
   getUser() {
   	return this.service.getUser(this.username).then(response => {
