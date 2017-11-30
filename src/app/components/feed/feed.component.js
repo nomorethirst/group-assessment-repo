@@ -14,11 +14,15 @@ const controller =
           "content": this.newTweetText,
           "credentials": this.credentials
         })
+
         userService.getFeed().then((response) => {
           let tweets = response.data
           console.log($scope.tweets)
           $scope.tweets = response.data;
         })
+
+
+        location.reload();
       }
 
 
