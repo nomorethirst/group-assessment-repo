@@ -5,15 +5,16 @@ const controller = class UserPageController {
   constructor ($log, $state, userService) {
   	'ngInject'
   	this.service = userService
-		this.state = $state;
-		if (this.service.isAuthenticated()) {
-			this.username = this.service.user.username
-		} else {
-			this.username = this.state.params.username
-		}
+	this.state = $state;
+	this.logger = $log
+	if (this.service.isAuthenticated()) {
+		this.username = this.service.user.username
+	} else {
+		this.username = this.state.params.username
+		this.logger.log(this.username)
+	}
   	this.userTweetList = []
-  	this.user = {}
-  	this.logger = $log
+  	
   }
   
   getUser() {
