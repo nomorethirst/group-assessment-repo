@@ -60,8 +60,7 @@ export const ftUserBlurb = {
   controller,
   templateUrl,
   controllerAs: 'userblurb',
-  binding:{
+  bindings: {
     user: '='
   }
 }
-
