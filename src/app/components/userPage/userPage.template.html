@@ -23,7 +23,7 @@
       	<div class="userPage-text-topHalf">
           <div class="userPage-text">See what
           </div>
-            <div class="userPage-text username">@{{userPage.user.username}}
+          <div class="userPage-text username">@{{userPage.user.username}}
           </div>
         </div>
         <div class="userPage-text">has been up to</div>
@@ -34,28 +34,9 @@
   	<div class="userPage-body-leftPadding"></div>
     <div class="userTweetsContainer">
       <div class="verticalScrollWrapper" ng-repeat="tweet in userPage.userTweetList">
-        <div class="tweets userPage">
-  	      <div class="tweets-profileContainer">
-  	  	    <span class="tweets-firstName">{{tweet.author.profile.firstName}}
-  	        <span class="tweets-lastName">{{tweet.author.profile.lastName}}</span>
-  	        </span>
-  	  	    <div class="tweets-Username">
-  	  	      @{{tweet.author.username}}
-  	        </div>
-  	      </div>
+        <ft-tweet  tweet=tweet>
 
-  	      <div class="tweets-content welcome">
-  	        {{tweet.content}}
-  	      </div>
-          <div class="tweets-timestamp">
-            {{tweetAll.convertTime(tweet.posted)}}
-          </div>
-          <div class="tweets-icons">
-            <span class="glyphicon glyphicon-share-alt reply Icon"></span>
-            <span class="glyphicon glyphicon-retweet retweet Icon"></span>
-            <span class="glyphicon glyphicon-heart like Icon"></span>
-          </div>
-  	    </div>
+  	    </ft-tweet>
   	  </div>
     </div>
   </div>
