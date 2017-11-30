@@ -22,11 +22,16 @@
   <div class="userBlurb-social">
     <div class="userBlurb-link">
       <span class="userBlurb-followers">
-        <a ui-sref="followers({ 'username': userblurb.user.username })">Followers: {{userblurb.numFollowers}}</a></span>
+        <div class="followersContainer">
+          <a ui-sref="followers({ 'username': userblurb.user.username })">
+          Followers<div class="followersNumber"> {{userblurb.numFollowers}}</div></a></div></span>
       <span class="userBlurb-following">
-        <a ui-sref="following({ 'username': userblurb.user.username })">Following: {{userblurb.following.length}}</a></span>
+        <div class="followingContainer">
+          <a ui-sref="following({ 'username': userblurb.user.username })">
+            Following<div class="followingNumber"> {{userblurb.following.length}}</div></a></div></span>
       <span class="userBlurb-mentions">
-        <a ui-sref="mentions({ 'username': userblurb.user.username })">Mentions: {{userblurb.mentions.length}}</a></span>
+        <div class="mentionsContainer">
+        <a ui-sref="mentions({ 'username': userblurb.user.username })">Mentions<div class="mentionsNumber">{{userblurb.mentions.length}}</div></a></div></span>
     </div>
   </div>
   <div class="userblurb-icons" ng-show="userblurb.isCurrentUser">
