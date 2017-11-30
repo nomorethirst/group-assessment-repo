@@ -157,11 +157,11 @@ export class UserService {
                 })
         }
 
-        follow(credentials = this.credentials, username) {
+        follow(username, credentials = this.credentials) {
             return this.http.post(`${this.baseUrl}/users/@${this.user.username}/follow`, credentials)
         }
 
-        unfollow(credentials = this.credentials, username) {
+        unfollow(username, credentials = this.credentials) {
             return this.http.post(`${this.baseUrl}/users/@${this.user.username}/unfollow`, credentials)
         }
 
