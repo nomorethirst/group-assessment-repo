@@ -32,7 +32,7 @@ const controller = class FtUserBlurbController {
   }
 
   loggedIn() {
-    return this.userService.isAuthenticated()
+    return !this.userService.isAuthenticated()
   }
 
   isFollowing() {
