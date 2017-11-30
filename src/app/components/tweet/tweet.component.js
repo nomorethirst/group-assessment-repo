@@ -34,7 +34,7 @@ const controller =
       }
 
       this.openBox = (num) => {
-        console.log(num)
+        console.log(this.tweet.inReplyTo)
         switch (num) {
           case 1:
             this.tweetService.getLikesById(this.tweet.id).then((data) => this.boxService.saveBoxData(data.data, num))
