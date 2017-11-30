@@ -20,8 +20,6 @@ const controller = class FtUserBlurbController {
       this.userService.getMentions(this.username).then(result => {
         this.mentions = result.data
       })
-
-      this.followOption = "Follow"
     }
   }
 
@@ -34,29 +32,23 @@ const controller = class FtUserBlurbController {
   }
 
   loggedIn() {
-    return !(this.userService.isAuthenticated())
+    return this.userService.isAuthenticated()
   }
 
-  followLogic() {
-    if (this.following) {
-      for (followed in this.following) {
-        if (followed.username === this.user.username) {
-          this.followOption = "Unfollow"
-        } else {
-          this.followOption = "Follow"
-        }
+  isFollowing() {
+    for (follow in this.followers) {
+      if (this.userService.user.username === follow.username) {
+        return true;
       }
     }
   }
 
   follow() {
-    this.log.log("follow is getting called")
-    if (this.followOption === "Follow") {
-      this.userService.follow(this.user.username)
-      this.log.log(this.user.username)
-    } else {
-      this.userService.unfolllow(this.user.username)
-    }
+    console.log(this.userService.follow(this.user.username))
+  }
+
+  unfollow() {
+    this.userService.unfollow(this.user.username)
   }
 
 }

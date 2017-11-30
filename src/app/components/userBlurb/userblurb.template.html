@@ -39,6 +39,9 @@
     </div>
   </div>
   <div class="userblurb-icons">
-    <input type="button" ng-disabled="userblurb.loggedIn" ng-click="userblurb.follow; userblurb.followLogic" class="btn btn-primary" value="{{userblurb.followOption}}">  
+    <input type="button" ng-disabled="userblurb.loggedIn" ng-click="userblurb.follow" ng-show="!userblurb.isFollowing()" class="btn btn-primary" value="Follow"> 
+  </div>
+  <div class="userblurb-icons">
+    <input type="button" ng-disabled="userblurb.loggedIn" ng-click="userblurb.unfollow" ng-show="userblurb.isFollowing()" class="btn btn-primary" value="Unfollow"> 
   </div>
 </div>
