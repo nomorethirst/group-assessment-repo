@@ -72,6 +72,11 @@
 }
 
 .userPage-bodyContainer {
-  display:flex;
+  display: flex;
   justify-content: center;
+  flex: 1 0 auto;
+}
+
+.userBody-body-leftPadding {
+  flex: .3 0 auto;
 }
