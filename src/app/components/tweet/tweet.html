@@ -13,9 +13,7 @@
           <span class="tweets-firstName">{{tweet.tweet.author.profile.firstName}}
           <span class="tweets-lastName">{{tweet.tweet.author.profile.lastName}}</span>
           </span>
-          <div class="tweets-Username">
-            @{{tweet.tweet.author.username}}
-          </div>
+          <div class="tweets-Username" ng-bind-html="tweet.author"></div>
         </div>
 
         <div ng-bind-html="tweet.tweet.content" class="tweets-content welcome">
@@ -29,9 +27,12 @@
           <span ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.likeTweet() " class="glyphicon glyphicon-heart like Icon "></span>
         </div>
         <div class="tweet-buttons ">
-          <div ng-click="tweet.openBox(1) " class="btn btn-sm btn-danger ">{{$scope.likes.length}} likes</div>
-          <div ng-click="tweet.openBox(2) " class="btn btn-sm btn-danger ">{{$scope.replies.length}} replies</div>
-          <div ng-click="tweet.openBox(3) " class="btn btn-sm btn-danger ">{{$scope.retweets.length}} retweets</div>
+          <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(1) " class="btn btn-sm btn-danger ">{{$scope.likes.length}} likes</div>
+          <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(2) " class="btn btn-sm btn-danger ">{{$scope.replies.length}} replies</div>
+          <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(3) " class="btn btn-sm btn-danger ">{{$scope.retweets.length}} retweets</div>
+          <div ng-click="tweet.deleteTweet()" class="btn btn-danger btn-sm" ng-show="tweet.userService.user.username == tweet.tweet.author.username">
+            Delete Tweet
+          </div>
         </div>
         <div ng-show="tweet.commentBoxActive">
           <textarea ng-model="tweet.replyBody " maxlength="140 "></textarea>

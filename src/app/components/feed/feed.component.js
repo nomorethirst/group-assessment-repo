@@ -8,6 +8,7 @@ const controller =
       this.userService = userService
       this.$state = $state
       this.tweetService = tweetService
+      console.log(userService.user)
 
       this.newTweet = () => {
         this.tweetService.post({

@@ -12,6 +12,7 @@ const controller =
       this.tweetService = tweetService
       this.boxService = boxService
       this.$onInit = () => {
+        console.log(this.tweet)
         if (this.tweet.inReplyTo != null)
           this.replyContent = $sce.trustAsHtml(this.tweet.inReplyTo.content)
         this.tweetService.getLikesById(this.tweet.id).then((result) => $scope.likes = result.data);
@@ -24,11 +25,17 @@ const controller =
           y + " ")
         builder += "</p>"
         this.tweet.content = $sce.trustAsHtml(builder);
+        this.author = $sce.trustAsHtml("<a href='users/@" + this.tweet.author.username + "/profile'>@" + this.tweet.author.username + "</a>")
       }
 
       let commentBoxActive = this.commentBoxActive;
 
       this.newTweetText = ""
+
+      this.deleteTweet = () => {
+        this.tweetService.delete(this.tweet.id)
+        location.reload()
+      }
 
       this.likeTweet = () => {
         this.tweetService.like(this.tweet.id, this.userService.credentials)
@@ -65,7 +72,7 @@ const controller =
             break;
         }
         if (num == 5)
-        location.reload();
+          location.reload();
       }
     }
   }
