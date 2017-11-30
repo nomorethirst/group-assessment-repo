@@ -11,4 +11,20 @@ ft-tweet {
 
 .tweets {
   padding-top: 0px;
+  cursor: pointer;
 }
+
+.retweet.Icon, .like.Icon, .reply.Icon  {
+  font-size: 20px;
+  color: grey;
+}
+
+.Icon:active {
+  color: black;
+  transition: 0.4s;
+}
+
+.like.Icon:active {
+  color: #d9534f;
+}
+

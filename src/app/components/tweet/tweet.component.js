@@ -3,10 +3,11 @@ import templateUrl from 'app/components/tweet/tweet'
 
 const controller =
   class TweetController {
-    constructor($log, $state, userService, tweetService, $sce, $scope, boxService) {
+    constructor($log, $state, userService, tweetService, $sce, $scope, boxService, $location) {
       'ngInject'
       this.userService = userService
       this.commentBoxActive = false;
+      this.location = $location
       this.$state = $state
       this.tweetService = tweetService
       this.boxService = boxService
@@ -53,6 +54,7 @@ const controller =
             break;
           case 5:
             this.tweetService.repost(this.tweet.id, this.userService.credentials)
+            location.reload();
             break;
           case 6:
             this.commentBoxActive = false;
@@ -60,10 +62,11 @@ const controller =
               "content": this.replyBody,
               "credentials": this.userService.credentials
             })
+            location.reload();
             break;
         }
-        // if (num == 5)
-        //   this.route.reload();
+        if (num == 5)
+        location.reload();
       }
     }
   }

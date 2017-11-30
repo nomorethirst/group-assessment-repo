@@ -22,7 +22,7 @@
           {{tweet.convertTime(tweet.tweet.posted)}}
         </div>
         <div class="tweets-icons">
-          <span ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(4)" class="glyphicon glyphicon-share-alt reply Icon "></span>
+          <span ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(4)" class="glyphicon glyphicon-share-alt reply Icon"></span>
           <span ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(5)" class="glyphicon glyphicon-retweet retweet Icon "></span>
           <span ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.likeTweet() " class="glyphicon glyphicon-heart like Icon "></span>
         </div>
