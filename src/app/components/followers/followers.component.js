@@ -6,11 +6,7 @@ const controller = class FtFollowersController {
     'ngInject'
     this.userService = userService
     this.state = $state;
-		if (this.userService.isAuthenticated()) {
-			this.username = this.userService.user.username
-		} else {
-      this.username = this.state.params.username
-		}
+    this.username = this.state.params.username
     this.followersList = []
     $log.debug('ft-followers is a go')
 
