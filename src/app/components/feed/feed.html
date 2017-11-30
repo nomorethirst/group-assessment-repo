@@ -7,7 +7,7 @@
   <button class="btn btn-primary" ng-click="feed.newTweet()">Chirp!</button>
   <div class="feed-container">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <ft-user-feed-blurb id="user-blurb-feed"></ft-user-feed-blurb>
+    <ft-user-blurb id="user-blurb" user = "feed.userService.getCurrentUser()"></ft-user-blurb>
 
     <div id="filler">
 
