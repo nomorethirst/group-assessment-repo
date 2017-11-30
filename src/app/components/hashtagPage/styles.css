@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
 }
 
 .headerText {
@@ -26,7 +26,7 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   justify-content: center;
-  height: 30vh;
+  height: 10vh;
   width: 100%;
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
@@ -48,10 +48,6 @@
 
 .hashtagCaption {
   padding-top: 30px;
-}
-
-.spacing {
-  flex: .3 0 auto;
 }
 
 .tweets {

@@ -23,6 +23,15 @@ const controller = class FtUserBlurbController {
     }
     $log.debug('ft-userblurb is a go')
   }
+
+  convertTime(timeInMillis) {
+    var options = {  
+      hour: "2-digit", minute: "2-digit", weekday: "short", 
+      year: "numeric", month: "short", day: "numeric"   
+    }  
+    return new Date(timeInMillis).toLocaleTimeString("en-us", options)
+  }
+
 }
 
 export const ftUserBlurb = {
