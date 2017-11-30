@@ -17,7 +17,7 @@ export class UserService {
         // uncomment the following line to load n<=1000 test users
         // this.loadTestUsers(20)
         // uncomment the following line to load n<=1000 test tweets (after users created from line above)
-        // this.loadTestTweets(20)
+        this.loadTestTweets(20)
         }
 
         loadTestUsers(max) {
@@ -68,8 +68,8 @@ export class UserService {
                 tokens[j] = "#".concat(tokens[j])
                 // 1 random mention of user already created
                 j = Math.floor(Math.random() * i)
-                tokens.push("@" + userData[j].username)
-                let content = tokens.join(' ')
+                tokens.unshift("@" + userData[j].username)
+                let content = tokens.join(' ').substring(0,139)
                 this.tweetService.post({content, credentials})
                     .then(result => {
                         this.logger.log(`Created test tweet id '${result.data.id}'.`)
