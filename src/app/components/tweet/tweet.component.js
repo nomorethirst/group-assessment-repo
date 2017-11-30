@@ -10,7 +10,6 @@ const controller =
       this.$state = $state
       this.tweetService = tweetService
       this.boxService = boxService
-      this.commentBox = "opacity: 0;"
       this.$onInit = () => {
         if (this.tweet.inReplyTo != null)
           this.replyContent = $sce.trustAsHtml(this.tweet.inReplyTo.content)
@@ -26,7 +25,7 @@ const controller =
         this.tweet.content = $sce.trustAsHtml(builder);
       }
 
-      let commentBoxActive = false;
+      let commentBoxActive = this.commentBoxActive;
 
       this.newTweetText = ""
 
@@ -36,7 +35,7 @@ const controller =
       }
 
       this.openBox = (num) => {
-        console.log(this.tweet.inRepostOf)
+        console.log(num)
         switch (num) {
           case 1:
             this.tweetService.getLikesById(this.tweet.id).then((data) => this.boxService.saveBoxData(data.data, num))
@@ -49,12 +48,13 @@ const controller =
             break;
           case 4:
             this.commentBoxActive = !this.commentBoxActive;
+            commentBoxActive = !commentBoxActive;
             break;
           case 5:
             this.tweetService.repost(this.tweet.id, this.userService.credentials)
             break;
           case 6:
-            console.log(this.commentBoxActive)
+            this.commentBoxActive = false;
             this.tweetService.reply(this.tweet.id, {
               "content": this.replyBody,
               "credentials": this.userService.credentials

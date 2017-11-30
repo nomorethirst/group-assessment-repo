@@ -1,8 +1,15 @@
 .tweet-head-thing {
   font-size: 1em;
   text-align: center;
+  margin: 0px;
+  border-top: 10px solid darkblue;
 }
 
-tweet {
+ft-tweet {
   height: 100%;
+  max-width: 512px;
+}
+
+.tweets {
+  padding-top: 0px;
 }
