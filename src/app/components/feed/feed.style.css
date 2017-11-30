@@ -11,11 +11,8 @@ ft-feed {
 }
 
 ft-tweet {
-  font-family: 'Indie Flower', cursive;
   max-width: 512px;
-  background-color: lightblue;
-  padding: 32px;
-  margin: 32px;
+  background: lightblue;
 }
 
 .tweet-author {
@@ -26,6 +23,7 @@ ft-tweet {
 
 .tweet-content {
   margin-top: 22px;
+  font-family: 'Indie Flower', cursive;
 }
 
 .tweet-reply {
