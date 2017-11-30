@@ -12,7 +12,6 @@ const controller =
       this.tweetService = tweetService
       this.boxService = boxService
       this.$onInit = () => {
-        console.log(this.tweet)
         if (this.tweet.inReplyTo != null)
           this.replyContent = $sce.trustAsHtml(this.tweet.inReplyTo.content)
         this.tweetService.getLikesById(this.tweet.id).then((result) => $scope.likes = result.data);
@@ -39,11 +38,9 @@ const controller =
 
       this.likeTweet = () => {
         this.tweetService.like(this.tweet.id, this.userService.credentials)
-        console.log("Like tweet")
       }
 
       this.openBox = (num) => {
-        console.log(num)
         switch (num) {
           case 1:
             this.tweetService.getLikesById(this.tweet.id).then((data) => this.boxService.saveBoxData(data.data, num))

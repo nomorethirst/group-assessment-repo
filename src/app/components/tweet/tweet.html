@@ -27,9 +27,9 @@
           <span ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.likeTweet() " class="glyphicon glyphicon-heart like Icon "></span>
         </div>
         <div class="tweet-buttons ">
-          <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(1) " class="btn btn-sm btn-danger ">{{$scope.likes.length}} likes</div>
-          <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(2) " class="btn btn-sm btn-danger ">{{$scope.replies.length}} replies</div>
-          <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(3) " class="btn btn-sm btn-danger ">{{$scope.retweets.length}} retweets</div>
+          <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(1) " class="btn btn-sm btn-danger "> likes</div>
+          <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(2) " class="btn btn-sm btn-danger "> replies</div>
+          <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(3) " class="btn btn-sm btn-danger "> retweets</div>
           <div ng-click="tweet.deleteTweet()" class="btn btn-danger btn-sm" ng-show="tweet.userService.user.username == tweet.tweet.author.username">
             Delete Tweet
           </div>
