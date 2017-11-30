@@ -181,6 +181,7 @@ export class UserService {
                 .then(result => {
                     this.logger.log('userService.patchUser result: ', result)
                     this.user = result.data
+                    this.saveState()
                     return Promise.resolve(result)
                 })
                 .catch(error => {
