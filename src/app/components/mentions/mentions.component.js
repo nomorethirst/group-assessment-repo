@@ -16,7 +16,7 @@ const controller = class FtMentions {
   }
 
 
-  getMentions() {
+getMentions() {
   	return this.userService.getMentions(this.username).then(response => {
   	  this.userMentionsList = response.data
   	})
