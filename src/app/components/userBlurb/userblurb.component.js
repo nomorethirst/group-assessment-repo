@@ -2,12 +2,14 @@ import 'app/components/userBlurb/userblurb.styles'
 import templateUrl from 'app/components/userBlurb/userblurb.template'
 
 const controller = class FtUserBlurbController {
-  constructor($log, userService) { 
+  constructor($log, $location, userService) { 
     'ngInject'
 
     this.log = $log
     this.userService = userService
+    this.location = $location
     this.$onInit = () => {
+      this.loggedIn = !(this.userService.isAuthenticated())
       this.username = this.user.username
       this.userService.getUser(this.username).then(result => {
         this.user = result.data
@@ -40,18 +42,14 @@ const controller = class FtUserBlurbController {
     return new Date(timeInMillis).toLocaleTimeString("en-us", options)
   }
 
-  loggedIn() {
-    return !this.userService.isAuthenticated()
-  }
-
   follow() {
     this.userService.follow(this.user.username)
-    this.route.reload()
+    this.location.reload()
   }
 
   unfollow() {
     this.userService.unfollow(this.user.username)
-    this.route.reload()
+    this.location.reload()
   }
 
 }
