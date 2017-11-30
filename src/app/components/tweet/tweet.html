@@ -30,8 +30,8 @@
           <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(1) " class="btn btn-sm btn-danger ">{{$scope.likes.length}} likes</div>
           <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(2) " class="btn btn-sm btn-danger ">{{$scope.replies.length}} replies</div>
           <div ng-show="tweet.userService.isAuthenticated()" ng-click="tweet.openBox(3) " class="btn btn-sm btn-danger ">{{$scope.retweets.length}} retweets</div>
-          <div ng-show="tweet.userService.author.id == tweet.tweet.author.id">
-            I am the author!
+          <div ng-click="tweet.deleteTweet()" class="btn btn-danger btn-sm" ng-show="tweet.userService.user.username == tweet.tweet.author.username">
+            Delete Tweet
           </div>
         </div>
         <div ng-show="tweet.commentBoxActive">
