@@ -46,7 +46,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  line-height: 30px;
+  overflow-wrap: break-word;
+  line-height: 45px;
+  width: 55vw;
 }
 
 .userPage-text, .userPage-text:after {
@@ -54,21 +56,20 @@
   color: #f9f9f9;
   padding-top: 30px;
   white-space: nowrap;
-  display: inline-block;
   letter-spacing: 1px;
   margin-left: 2%;
 }
 
 .userPage-text {
 	align-self: center;
-    font-size: 3.4vw;
+    font-size: 3.3vw;
     z-index: 100;
 }
 
 .userPage-text.username {
-  font-size: 2em;
+  font-size: 9vw;
   max-width: 30%;
-  text-overflow: break-word;
+  overflow-wrap: break-word;
   color: #d9534f;
   padding-right: 4%;
 }
@@ -80,5 +81,10 @@
 }
 
 .userPage-body-leftPadding {
-  flex: .33 0 200px;
+  flex: .2 0 265px;
+}
+
+.tweets.userPage {
+  width: 30vw;
+  overflow-wrap: break-word;
 }
