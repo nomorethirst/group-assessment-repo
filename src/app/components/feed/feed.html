@@ -1,24 +1,21 @@
-<div class="box-background">
+<h1 class="feed-head">Welcome to today's drama, {{feed.user.username}}</h1>
 
-  <h1 class="feed-head">Welcome to today's drama, {{feed.user.username}}</h1>
 
-  <textarea maxlength="140" id="new-tweet-text" placeholder="Add more drama!" ng-model="feed.newTweetText"></textarea>
-  <br />
-  <button class="btn btn-primary" ng-click="feed.newTweet()">Chirp!</button>
-  <div class="feed-container">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <ft-user-blurb style="padding: 12px; position: fixed; top: 48px; left: 0px; width: 24vw; box-shadow: 5px 5px 10px #888888;" id="user-blurb" user="feed.userService.user"></ft-user-blurb>
-
-    <div id="filler">
-
-    </div>
-
-    <div id="tweets-in-feed">
-      <ft-tweet ng-click="openBox()" ng-repeat="x in tweets track by $index" tweet="x"></ft-tweet>
-    </div>
-
-    <ft-box></ft-box>
-
-  </div>
+<textarea maxlength="140" id="new-tweet-text" placeholder="Add more drama!" ng-model="feed.newTweetText"></textarea>
+<br />
+<div class="filler">
 
 </div>
+<button class="btn btn-primary" ng-click="feed.newTweet()">Chirp!</button>
+<div class="feed-container">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <ft-user-blurb style="padding: 12px; position: fixed; top: 48px; left: 0px; width: 24vw; box-shadow: 5px 5px 10px #888888;" id="user-blurb" user="feed.userService.user"></ft-user-blurb>
+
+
+  <div id="tweets-in-feed">
+    <ft-tweet ng-click="openBox()" ng-repeat="x in tweets track by $index" tweet="x"></ft-tweet>
+  </div>
+
+
+</div>
+<ft-box class="filler"></ft-box>

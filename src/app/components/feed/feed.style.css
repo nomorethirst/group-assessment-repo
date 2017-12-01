@@ -4,6 +4,7 @@ ft-feed {
   display: inline-block;
   padding-top: 64px;
   overflow: visible;
+  background-color: beige;
 }
 
 .replyBox {
@@ -32,7 +33,7 @@ ft-tweet {
 .feed-container {
   display: flex;
   align-content: center;
-  justify-content: space-around;
+  justify-content: center;
   flex: 1;
 }
 
@@ -62,8 +63,8 @@ ft-tweet {
   }
 }
 
-#filler {
-  flex: 1
+.filler {
+  flex: 1;
 }
 
 .tweet-buttons {
