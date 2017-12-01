@@ -21,6 +21,7 @@ const controller = class TweetAllController {
   }
 }
 
+
 export const tweetAll = {
   controller,
   templateUrl,
