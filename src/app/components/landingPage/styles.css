@@ -90,7 +90,7 @@
 }
 .tweets.welcome {
   width: 280px;
-  height: 420px;
+  height: 400px;
   margin: 10px;
   margin-top: 15px;
   overflow-wrap: break-word;
@@ -107,9 +107,9 @@
 
 .user.welcome {
   width: 280px;
-  height: 420px;
+  height: 430px;
   margin: 10px;
-  margin-top: 15px;
+  margin-top: 20px;
   overflow-wrap: break-word;
   text-align: center;
   box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.75);

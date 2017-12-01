@@ -23,10 +23,13 @@
   	  </div>
     </div>
   </div>
-<div id="hashtagResult">
-  <div class="hashtagResultContainer">
-  	<div ng-animate="'animate'" ng-repeat="tweet in searchBar.foundTweets">
-        <ft-tweet tweet=tweet></ft-tweet>
+  <div id="hashtagResult">
+    <div class="hashtagResultContainer">
+      <div class="resultTweet">
+  	    <div ng-animate="'animate'" ng-repeat="tweet in searchBar.foundTweets">
+          <ft-tweet tweet=tweet></ft-tweet>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -81,10 +81,15 @@
 }
 
 .userPage-body-leftPadding {
-  flex: .2 0 265px;
+  flex: .2 0 300px;
 }
 
 .tweets.userPage {
   width: 30vw;
   overflow-wrap: break-word;
+}
+
+
+.userTweetsContainer {
+  width: 60vw;
 }
